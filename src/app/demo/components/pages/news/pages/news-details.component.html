@@ -1,0 +1,9 @@
+
+<ng-container *ngIf="newsDetails">
+  <div class="flex flex-column gap-2">
+    <label for="title">Titre</label>
+    <input pInputText id="title" [(ngModel)]="newsDetails.title" />    
+  </div>
+  <p-editor [(ngModel)]="newsDetails.description" [style]="{ height: '200px' }"></p-editor>
+  <button pButton type="button" label="Enregistrer" (click)="saveNewsDetails()"></button>
+</ng-container> 

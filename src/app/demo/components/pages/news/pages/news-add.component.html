@@ -1,0 +1,10 @@
+<div *ngIf="newsAdd">
+  <div class="flex flex-column gap-2">
+    <label for="title">Titre</label>
+    <input pInputText id="title" [(ngModel)]="newsAdd.title" />    
+  </div>
+  <p-editor [(ngModel)]="newsAdd.description" [style]="{ height: '200px' }"></p-editor>
+  <p-toast key="Success"></p-toast>
+  <button type="button" pButton pRipple (click)="showToast1(); save()" label="Ajouter"></button>
+</div> 
+

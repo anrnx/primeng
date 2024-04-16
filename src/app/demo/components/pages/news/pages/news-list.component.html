@@ -1,0 +1,19 @@
+<h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">News</h1>
+<button type="button" pButton pRipple [routerLink]="'/pages/news/add'" class="ml-2">Ajouter une news</button>
+<p-table [value]="newsList" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+            <th pSortableColumn="body">Description <p-sortIcon field="body"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+     <ng-template pTemplate="body" let-news>
+     <tr>
+        <td style="width: 35%; min-width: 7rem;">{{news.title}}</td>  
+        <td style="width: 35%; min-width: 8rem;">{{news.description}}</td>
+        <td style="width: 15%;">
+            <button pButton pRipple type="button" icon="pi pi-search" [routerLink]="'/pages/news/'+news.uuid"></button>
+        </td>
+    </tr>
+</ng-template>
+</p-table>
