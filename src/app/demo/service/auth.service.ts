@@ -12,8 +12,8 @@ export class AuthService {
     }
 
     login(email:string, password:string ) {
-        return this.http.post<User>('https://api.cityapp.lu/auth/api/configurations/cityapp/tokens', 
-        { username: "arenaux@hotcity.lu", password: "2r7w5w5j" });
+        return this.http.post<User>('https://api.cityapp.lu/auth/api/configurations/cityapp/tokens',
+        { username: email, password: password });
     }
 
     getUserRole(): Role {
