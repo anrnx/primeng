@@ -29,13 +29,11 @@ import { MessageService } from 'primeng/api';
         ButtonModule,
         NewsRoutingModule,
         InputTextModule,
-        EditorModule,
-        ToastModule
+        EditorModule
     ],
     
     providers: [
        NewsService,
-       MessageService
     ],
 
     declarations: [NewsAddComponent, NewsListComponent, NewsDetailsComponent]

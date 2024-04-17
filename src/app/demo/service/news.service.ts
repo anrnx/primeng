@@ -11,6 +11,11 @@ export class NewsService {
         return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news');
     }
 
+    dataSourceNewsList(page, limit) {
+        return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news?page='+page+'&limit='+limit, {observe: 'response'});
+    }
+
+
     getNewsDetails(uuid: string) {
         return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news/' + uuid);
     }
@@ -21,5 +26,9 @@ export class NewsService {
 
     postNews(news: News) {
         return this.http.post<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news', news);
+    }
+
+    deleteNews(uuid: string) {
+        return this.http.delete<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news/' + uuid);
     }
 }

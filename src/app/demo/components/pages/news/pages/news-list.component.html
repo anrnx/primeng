@@ -1,6 +1,6 @@
 <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">News</h1>
 <button type="button" pButton pRipple [routerLink]="'/pages/news/add'" class="ml-2">Ajouter une news</button>
-<p-table [value]="newsList" [paginator]="true" [rows]="5" responsiveLayout="scroll">
+<p-table [lazy]="true" [loading]="loading" [value]="newsList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)" responsiveLayout="scroll">
     <ng-template pTemplate="header">
         <tr>
             <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>

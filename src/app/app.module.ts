@@ -20,16 +20,18 @@ import { I18nFrHttpInterceptor } from './utilities/i18n-fr-http.interceptor';
 import { LangHttpInterceptor } from './utilities/lang-http.interceptor';
 import { UnauthorisedComponent } from './demo/components/unauthorised/unauthorised.component';
 import { ForbiddenComponent } from './demo/components/forbidden/forbidden.component';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent,  UnauthorisedComponent, ForbiddenComponent],
-    imports: [AppRoutingModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule],
+    imports: [AppRoutingModule, ToastModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService,
+        PhotoService, ProductService,MessageService,
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: XApiVersionInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: I18nFrHttpInterceptor, multi: true },

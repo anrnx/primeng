@@ -10,11 +10,31 @@ export class NewsListComponent implements OnInit {
 
     newsList: News[] = []; 
 
+    currentPage: number = 1;
+    rowsPerPage: number = 3;
+    totalRecords: number = 10;
+    loading= false;
+
     constructor(private newsService: NewsService) { }
 
-    ngOnInit() {   
-        this.newsService.getNewsList().subscribe((data: any) => {
-            this.newsList = data;
-        });
+    ngOnInit() {
+        this.loading = true;
+        this.currentPage = 1;
+        this.newsService.dataSourceNewsList(this.currentPage, this.rowsPerPage).subscribe((data: any) => {
+            this.totalRecords = data.headers.get('X-Total-Count');
+            this.newsList = data.body;  
+            this.loading = false;
+        }, error => {this.loading = false;});
     }
+
+    onPageChange(event: any) {
+        console.log(event);
+        this.loading = true;
+        this.currentPage = event.first != 0 ? (event.first / this.rowsPerPage) +1 : 1;
+        this.newsService.dataSourceNewsList(this.currentPage, this.rowsPerPage).subscribe((data: any) => {
+            this.totalRecords = data.headers.get('X-Total-Count');
+            this.newsList = data.body;  
+            this.loading = false;
+        }, error => {this.loading = false;});
+      }
 }
