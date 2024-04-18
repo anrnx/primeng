@@ -31,9 +31,9 @@ export class NewsListComponent implements OnInit {
         console.log(event);
         this.loading = true;
         this.currentPage = event.first != 0 ? (event.first / this.rowsPerPage) +1 : 1;
-        this.newsService.dataSourceNewsList(this.currentPage, this.rowsPerPage, null).subscribe((data: any) => {
+        this.newsService.dataSourceNewsList(this.currentPage, this.rowsPerPage, event.filters).subscribe((data: any) => {
             this.totalRecords = data.headers.get('X-Total-Count');
-            this.newsList = data.body;  
+            this.newsList = data.body; 
             this.loading = false;
         }, error => {this.loading = false;});
       }

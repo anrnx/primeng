@@ -1,31 +1,40 @@
 <p-card>
-    <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">News</h1>
-    <p-button label="Ajouter une news" type="button" pButton pRipple icon="pi pi-times" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em' }" [routerLink]="'/pages/news/add'" class="ml-2"></p-button>
-    <p-table [lazy]="true" [loading]="loading" [value]="newsList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)" responsiveLayout="scroll">
-        <ng-template pTemplate="header">
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">News</h1>
+        </div>
+        <div class="col">
+            <p-button label="Ajouter une news" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/news/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+    <p-table [lazy]="true" [loading]="loading" [value]="newsList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
 
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 45%;" pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
+            <th style="width: 45%;" pSortableColumn="body">Description <p-sortIcon field="body"></p-sortIcon></th>
+            <th style="width: 10%;"></th>
+        </tr>
+        <tr>
             <th>
                 <p-columnFilter type="text" field="title"></p-columnFilter>
-                
+
             </th>
             <th>
                 <p-columnFilter type="text" field="description"></p-columnFilter>
             </th>
-            
-            <tr>
-                <th pSortableColumn="title">Title <p-sortIcon field="title"></p-sortIcon></th>
-                <th pSortableColumn="body">Description <p-sortIcon field="body"></p-sortIcon></th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-news>
-        <tr>
-            <td style="width: 35%; min-width: 7rem;">{{news.title}}</td>  
-            <td style="width: 35%; min-width: 8rem;">{{news.description}}</td>
-            <td style="width: 15%;">
-                
-                <button pButton pRipple type="button" icon="pi pi-search" [routerLink]="'/pages/news/'+news.uuid"></button>
-            </td>
-        </tr>
+            <th>
+            </th>
+
+            </ng-template>
+            <ng-template pTemplate="body" let-news>
+                <tr>
+                    <td>{{news.title}}</td>
+                    <td>{{news.description}}</td>
+                    <td>
+                        <button pButton pRipple type="button" icon="pi pi-search" [routerLink]="'/pages/news/'+news.uuid"></button>
+                    </td>
+                </tr>
     </ng-template>
     </p-table>
 </p-card>
