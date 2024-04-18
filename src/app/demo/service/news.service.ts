@@ -38,3 +38,5 @@ export class NewsService {
         return this.http.delete<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news/' + uuid);
     }
 }
+
+//JUSTE POUR LE COMMIT
