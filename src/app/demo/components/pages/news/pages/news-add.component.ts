@@ -7,7 +7,6 @@ import { MessageService } from 'primeng/api';
 @Component({
     templateUrl: './news-add.component.html',
     styleUrls: ['./news-add.component.scss'],
-    providers: [MessageService]
 })
 export class NewsAddComponent implements OnInit {
 
@@ -17,10 +16,10 @@ export class NewsAddComponent implements OnInit {
     constructor(private newsService: NewsService, private router: Router, public messageService: MessageService) { }
 
     ngOnInit() {   
+    
     }
-
+    
     showSuccess() {
-        
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'News added' });
     }
 
@@ -32,6 +31,7 @@ export class NewsAddComponent implements OnInit {
     save() {
         this.newsAdd.pictures = [];
         this.newsAdd.files = [];
+        
         this.newsService.postNews(this.newsAdd).subscribe((data: any) => {
             this.showSuccess();
             this.router.navigate(['pages/news']);            

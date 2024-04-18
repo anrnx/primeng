@@ -11,8 +11,14 @@ export class NewsService {
         return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news');
     }
 
-    dataSourceNewsList(page, limit) {
-        return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news?page='+page+'&limit='+limit, {observe: 'response'});
+    dataSourceNewsList(page, limit, filters) {
+        var filterString = '';
+        if (filters != null) {
+            filterString += "&title_like=test";
+            filterString += "&description_like=test";
+        }
+        
+        return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news?page='+page+'&limit='+limit+filterString, {observe: 'response'});
     }
 
 

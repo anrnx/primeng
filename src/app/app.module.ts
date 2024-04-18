@@ -22,12 +22,14 @@ import { UnauthorisedComponent } from './demo/components/unauthorised/unauthoris
 import { ForbiddenComponent } from './demo/components/forbidden/forbidden.component';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { CardModule } from 'primeng/card';
+
 
 
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent,  UnauthorisedComponent, ForbiddenComponent],
-    imports: [AppRoutingModule, ToastModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule],
+    imports: [AppRoutingModule, ToastModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule, CardModule],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
