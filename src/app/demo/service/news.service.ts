@@ -14,10 +14,13 @@ export class NewsService {
     dataSourceNewsList(page, limit, filters) {
         var filterString = '';
         if (filters != null) {
-            filterString += "&title_like=test";
+            if (filters['title'] && filters['title'].value) {
+                filterString += "&title_like=" + filters['title'].value;
+            }
+
             filterString += "&description_like=test";
         }
-        
+
         return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/dudelange-findit/news?page='+page+'&limit='+limit+filterString, {observe: 'response'});
     }
 
