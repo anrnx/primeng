@@ -7,13 +7,18 @@ import { Role } from '../../api/roles';
     imports: [RouterModule.forChild([
         { path: 'crud', loadChildren: () => import('./crud/crud.module').then(m => m.CrudModule) },
         { path: 'empty', loadChildren: () => import('./empty/emptydemo.module').then(m => m.EmptyDemoModule) },
-        { path: 'timeline', loadChildren: () => import('./timeline/timelinedemo.module').then(m => m.TimelineDemoModule) },
-        { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule), 
+        { path: 'news', loadChildren: () => import('./news/news.module').then(m => m.NewsModule),
         canActivate: [hasRoleGuard],
         data: {
           roles: [ Role.USER ]
         }},
+        { path: 'upload', loadChildren: () => import('./upload/upload.module').then(m => m.UploadModule)}, 
+        // canActivate: [hasRoleGuard],
+        // data: {
+        //   roles: [ Role.USER ]
+        // }},
         { path: '**', redirectTo: '/unauthorised' }
+
     ])],
     exports: [RouterModule]
 })

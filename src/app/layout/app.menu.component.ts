@@ -36,14 +36,17 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-book',
                         routerLink: ['/pages/news']
                     },
+
+                    {
+                        label: 'Upload',
+                        icon: 'pi pi-fw pi-upload',
+                        routerLink: ['/pages/upload']
+                    },
+                   
                     { 
                         label: 'Form Layout', 
                         icon: 'pi pi-fw pi-id-card', 
-                        routerLink: ['/uikit/formlayout'] },
-                    {
-                        label: 'Timeline',
-                        icon: 'pi pi-fw pi-calendar',
-                        routerLink: ['/pages/timeline']
+                        routerLink: ['/uikit/formlayout'] 
                     },
                     { 
                         label: 'Chart',

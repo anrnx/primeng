@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { TimelineDemoComponent } from './timelinedemo.component';
+import { UploadComponent } from './pages/upload.component';
+
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: TimelineDemoComponent }
+        { path: '', component: UploadComponent },     
     ])],
     exports: [RouterModule]
 })
-export class TimelineDemoRoutingModule { }
+export class UploadRoutingModule { }
