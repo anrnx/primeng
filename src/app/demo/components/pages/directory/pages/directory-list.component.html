@@ -1,0 +1,36 @@
+<p-card>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Directory</h1>
+        </div>
+        <div class="col">
+            <p-button label="Ajouter un contact" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/directory/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+    <p-table [lazy]="true" [loading]="loading" [value]="directoryList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 25%;" pSortableColumn="title">Nom <p-sortIcon field="title"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="body">Prénom <p-sortIcon field="body"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="title">Primary <p-sortIcon field="title"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="body">Priorité <p-sortIcon field="body"></p-sortIcon></th>
+                <th style="width: 10%;">Actions</th>
+            </tr>
+            <tr>
+                <th><p-columnFilter type="text" field="nom"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="Prénom"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="Primary"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="Priorité"></p-columnFilter></th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-directory>
+            <tr>
+                <td>{{directory.name}}</td>
+                <td>{{directory.firstname}}</td>
+                <td>{{directory.isprimary}}</td>
+                <td>{{directory.priority}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-card>
