@@ -28,7 +28,6 @@ export class NewsListComponent implements OnInit {
     }
 
     onPageChange(event: any) {
-        console.log(event);
         this.loading = true;
         this.currentPage = event.first != 0 ? (event.first / this.rowsPerPage) +1 : 1;
         this.newsService.dataSourceNewsList(this.currentPage, this.rowsPerPage, event.filters).subscribe((data: any) => {

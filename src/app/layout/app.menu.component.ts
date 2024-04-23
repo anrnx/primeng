@@ -42,6 +42,12 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-upload',
                         routerLink: ['/pages/upload']
                     },
+
+                    {
+                        label: 'Directory',
+                        icon: 'pi pi-fw pi-users',
+                        routerLink: ['/pages/directory']
+                    },
                    
                     { 
                         label: 'Form Layout', 

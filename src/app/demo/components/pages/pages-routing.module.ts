@@ -12,11 +12,7 @@ import { Role } from '../../api/roles';
         data: {
           roles: [ Role.USER ]
         }},
-        { path: 'upload', loadChildren: () => import('./upload/upload.module').then(m => m.UploadModule)}, 
-        // canActivate: [hasRoleGuard],
-        // data: {
-        //   roles: [ Role.USER ]
-        // }},
+        { path: 'directory', loadChildren: () => import('./directory/directory.module').then(m => m.DirectoryModule) },
         { path: '**', redirectTo: '/unauthorised' }
 
     ])],
