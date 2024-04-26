@@ -4,6 +4,8 @@ import { News } from 'src/app/demo/api/news';
 import { MessageService } from 'primeng/api';
 import { Directory } from 'src/app/demo/api/directory';
 import { DirectoryService } from 'src/app/demo/service/directory.service';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
     templateUrl: './directory-add.component.html',
@@ -13,6 +15,8 @@ export class DirectoryAddComponent implements OnInit {
     objectKeys(obj) {
         return Object.keys(obj);
     }
+
+    
 
     directoryAdd: Directory = {tags: []};
     uuid: string;
@@ -32,7 +36,37 @@ export class DirectoryAddComponent implements OnInit {
 
     suggestionTags: any[] = [];
 
-    constructor(private directoryService: DirectoryService, private router: Router, public messageService: MessageService) { }
+    constructor(private fb:FormBuilder, private directoryService: DirectoryService, private router: Router, public messageService: MessageService) { 
+        
+    }
+
+    getErrorList(errorObject) {
+        return Object.keys(errorObject);
+      }
+
+    directoryFormGroup = new FormGroup({
+        isprimary: new FormControl(null, Validators.required),
+        name: new FormControl(null, Validators.required),
+        firstname: new FormControl(null, Validators.required),
+        priority: new FormControl(null, Validators.required),
+        label: new FormControl(null, Validators.required),
+        emaillabel: new FormControl(null, Validators.required),
+        description: new FormControl(null, Validators.required),
+        tags: new FormControl(null, Validators.required),
+        emails: new FormControl(null, Validators.required),
+        phonenumberlabel: new FormControl(null, Validators.required),
+        phonenumber : new FormControl(null, Validators.required),
+        website: new FormControl(null, Validators.required),
+        physicaladdress : new FormControl(null, Validators.required),
+        city: new FormControl(null, Validators.required),
+        postalcode: new FormControl(null, Validators.required),
+        postaladress: new FormControl(null, Validators.required),
+        daysOfWeek: new FormControl(null, Validators.required),
+
+        start: new FormControl(null, Validators.required),
+        end: new FormControl(null, Validators.required),
+        isAppointment: new FormControl(null, Validators.required),
+    });
 
     ngOnInit() {   
     
@@ -86,3 +120,4 @@ export class DirectoryAddComponent implements OnInit {
             this.showError(error);
         });
     }}
+

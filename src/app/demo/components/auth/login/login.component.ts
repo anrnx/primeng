@@ -35,7 +35,7 @@ export class LoginComponent {
                     console.log(token);
                     this.router.navigateByUrl('/');
                 }
-            );
+            )
     }
 }
 

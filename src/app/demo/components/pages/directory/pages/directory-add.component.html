@@ -1,139 +1,144 @@
-<p-card>
+<form [formGroup]="directoryFormGroup">
+  <!-- <div *ngFor="let err of getErrorList(directoryFormGroup.controls.name.errors)">
+    <div>You entered not valid input</div>
+  </div> -->
 
-  <div class="field grid">
-    <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" class="ml-2"></p-button>
-  </div> 
-  <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
-  <div *ngIf="directoryAdd">     
+  <p-card>
     <div class="field grid">
-      <label class="col-12 mb-2 md:col-2 md:mb-0">Mise en avant</label>
-      <p-inputSwitch [(ngModel)]="directoryAdd.isPrimary"></p-inputSwitch>
-    </div>
-
-    <div class="field grid">
-      <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.name"/>
+      <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" class="ml-2"></p-button>
+    </div> 
+    <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
+    <div *ngIf="directoryAdd">     
+      <div class="field grid">
+        <label class="col-12 mb-2 md:col-2 md:mb-0">Mise en avant</label>
+        <p-inputSwitch fromControlName="isprimary"></p-inputSwitch>
       </div>
-    </div>
 
-    <div class="field grid">
-      <label for="firstname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="firsname" aria-describedby="firsname-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.firstname" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="priorite" class="col-12 mb-2 md:col-2 md:mb-0">Priorité d'affichage</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="priorite" aria-describedby="priorite-help"  [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.priority" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="label" class="col-12 mb-2 md:col-2 md:mb-0">Label</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.label" />
-      </div>
-    </div>
-    
-    <div class="field grid">
-      <label for="tags" class="col-12 mb-2 md:col-2 md:mb-0">Tags</label>        
+      <div class="field grid">
+        <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
         <div class="col-12 md:col-10">
-           <p-autoComplete [dropdown]="true" [(ngModel)]="directoryAdd.tags" [suggestions]="suggestionTags" (completeMethod)="filterTags($event)" field="name" [multiple]="true"></p-autoComplete>
+          <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="name"/>
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="firstname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="firsname" aria-describedby="firsname-help" [style]="{ 'margin-bottom': '.5em'}"formControlName="firstname" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="priorite" class="col-12 mb-2 md:col-2 md:mb-0">Priorité d'affichage</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="priorite" aria-describedby="priorite-help"  [style]="{ 'margin-bottom': '.5em'}" formControlName="priority" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="label" class="col-12 mb-2 md:col-2 md:mb-0">Label</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="label" />
+        </div>
+      </div>
+      
+      <div class="field grid">
+        <label for="tags" class="col-12 mb-2 md:col-2 md:mb-0">Tags</label>        
+          <div class="col-12 md:col-10">
+            <p-autoComplete [dropdown]="true" formControlName="tags" [suggestions]="suggestionTags" (completeMethod)="filterTags($event)" field="name" [multiple]="true"></p-autoComplete>
+            </div>
+    </div>  
+
+      <div class="field grid">
+        <label for="email" class="col-12 mb-2 md:col-2 md:mb-0">Email</label>
+      </div>  
+
+      <ng-container *ngFor="let email of emails; index as i;">
+        <div class="field grid">
+          <div class="col-12 md:col-10">
+            <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  formControlName="emaillabel" />
+            <input pInputText id="longitude" aria-describedby="longitude-help" formControlName="email.email" />
+            <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
           </div>
-   </div>  
-
-    <div class="field grid">
-      <label for="email" class="col-12 mb-2 md:col-2 md:mb-0">Email</label>
-    </div>  
-
-    <ng-container *ngFor="let email of emails; index as i;">
+        </div>
+      </ng-container>
       <div class="field grid">
+        <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addEmail()" class="ml-2"></p-button>
+      </div> 
+
+      <div class="field grid">
+        <label for="phone" class="col-12 mb-2 md:col-2 md:mb-0">Phone number</label>
+      </div>  
+      <ng-container *ngFor="let phonenumber of phoneNumbers; index as i;">
+        <div class="field grid">
+          <div class="col-12 md:col-10">
+            <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-right': '.5em'}"  formControlName="phonenumberlabel" />
+            <input pInputText id="phone" aria-describedby="longitude-help" formControlName="phonenumber" />
+            <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removePhoneNumber(i)" class="ml-2"></p-button>
+          </div>
+        </div>
+      </ng-container>
+      <div class="field grid">
+        <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addPhoneNumber()" class="ml-2"></p-button>
+      </div> 
+
+      <div class="field grid">
+        <label for="website" class="col-12 mb-2 md:col-2 md:mb-0">Site internet</label>
         <div class="col-12 md:col-10">
-          <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  [(ngModel)]="email.label" />
-          <input pInputText id="longitude" aria-describedby="longitude-help" [(ngModel)]="email.email" />
-          <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
+          <input pInputText id="website" aria-describedby="website-help" formControlName="website" />
         </div>
       </div>
-    </ng-container>
-    <div class="field grid">
-      <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addEmail()" class="ml-2"></p-button>
-    </div> 
 
-    <div class="field grid">
-      <label for="phone" class="col-12 mb-2 md:col-2 md:mb-0">Phone number</label>
-    </div>  
-    <ng-container *ngFor="let phonenumber of phoneNumbers; index as i;">
       <div class="field grid">
+        <label for="address" class="col-12 mb-2 md:col-2 md:mb-0">Adresse</label>
         <div class="col-12 md:col-10">
-          <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-right': '.5em'}"  [(ngModel)]="phonenumber.label" />
-          <input pInputText id="phone" aria-describedby="longitude-help" [(ngModel)]="phonenumber.phonenumbers" />
-          <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removePhoneNumber(i)" class="ml-2"></p-button>
+          <input pInputText id="address" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="physicaladdress" />
         </div>
       </div>
-    </ng-container>
-    <div class="field grid">
-      <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addPhoneNumber()" class="ml-2"></p-button>
-    </div> 
 
-    <div class="field grid">
-      <label for="website" class="col-12 mb-2 md:col-2 md:mb-0">Site internet</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="website" aria-describedby="website-help" [(ngModel)]="directoryAdd.website" />
+      <div class="field grid">
+        <label for="city" class="col-12 mb-2 md:col-2 md:mb-0">Ville</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="city" aria-describedby="city-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="city" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="postcode" class="col-12 mb-2 md:col-2 md:mb-0">Code postal</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="postcode" aria-describedby="postcode-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="postalcode" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="postaladdress" class="col-12 mb-2 md:col-2 md:mb-0">Adresse postale</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="postaladdress" aria-describedby="postaladdress-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="postaladdress" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="description" class="col-12 mb-2 md:col-2 md:mb-0">Description</label>
+        <div class="col-12 md:col-10">
+          <p-editor  formControlName="description"  [style]="{ height: '200px' }"></p-editor>
+        </div>
       </div>
     </div>
+  </p-card>
 
-    <div class="field grid">
-      <label for="address" class="col-12 mb-2 md:col-2 md:mb-0">Adresse</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="address" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.physicaladdress" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="city" class="col-12 mb-2 md:col-2 md:mb-0">Ville</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="city" aria-describedby="city-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.city" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="postcode" class="col-12 mb-2 md:col-2 md:mb-0">Code postal</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="postcode" aria-describedby="postcode-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.postalcode" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="postaladdress" class="col-12 mb-2 md:col-2 md:mb-0">Adresse postale</label>
-      <div class="col-12 md:col-10">
-        <input pInputText id="postaladdress" aria-describedby="postaladdress-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryAdd.postaladdress" />
-      </div>
-    </div>
-
-    <div class="field grid">
-      <label for="description" class="col-12 mb-2 md:col-2 md:mb-0">Description</label>
-      <div class="col-12 md:col-10">
-        <p-editor  [(ngModel)]="directoryAdd.description"  [style]="{ height: '200px' }"></p-editor>
-      </div>
-    </div>
-  </div>
-</p-card>
-
-<p-card [style]="{'margin-top':'2em'}">
-      <label class="col-15 mb-2 md:col-2 md:mb-0">Heures d'ouverture</label>
-      <div *ngFor="let k of objectKeys(daysOfWeek)"  style="padding: 15px"> 
-              <div class="field grid">
-                <label class="col-12 md:col-10 mb-2 md:col-2 md:mb-0">{{ k }}</label>
-                <div  class="col-15 md:col-10" *ngFor="let slot of daysOfWeek[k]">
-                  <p-calendar [style]="{'margin-right':'.5em'}" [(ngModel)]="slot.start" [timeOnly]="true"></p-calendar>
-                  <p-calendar [(ngModel)]="slot.end" [timeOnly]="true" [style]="{'margin-right':'.5em'}"></p-calendar>
-                  <p-inputSwitch [(ngModel)]="slot.isAppointment"></p-inputSwitch>
-                  <p-button [style]="{'background-color':'#FC7F03'}" label="Delete" type="button" pRipple icon="pi pi-check" (click)="removeDay(k)" class="ml-2"></p-button>
-                </div>
-            </div>    
-            <p-button [style]="{'background-color': '#FC7F03'}" label="Add {{k}}" type="button" pRipple icon="pi pi-plus" (click)="addDay(k)" class="ml-2"></p-button>   
-      </div>
-</p-card>
+  <p-card [style]="{'margin-top':'2em'}">
+        <label class="col-15 mb-2 md:col-2 md:mb-0">Heures d'ouverture</label>
+        <div *ngFor="let k of objectKeys(daysOfWeek)"  style="padding: 15px"> 
+                <div class="field grid">
+                  <label class="col-12 md:col-10 mb-2 md:col-2 md:mb-0">{{ k }}</label>
+                  <div  class="col-15 md:col-10" *ngFor="let slot of daysOfWeek[k]">
+                    <p-calendar [style]="{'margin-right':'.5em'}" formControlName="start" [timeOnly]="true"></p-calendar>
+                    <p-calendar formControlName="end" [timeOnly]="true" [style]="{'margin-right':'.5em'}"></p-calendar>
+                    <p-inputSwitch formControlName="isAppointment"></p-inputSwitch>
+                    <p-button [style]="{'background-color':'#FC7F03'}" label="Delete" type="button" pRipple icon="pi pi-check" (click)="removeDay(k)" class="ml-2"></p-button>
+                  </div>
+              </div>    
+              <p-button [style]="{'background-color': '#FC7F03'}" label="Add {{k}}" type="button" pRipple icon="pi pi-plus" (click)="addDay(k)" class="ml-2"></p-button>   
+        </div>
+  </p-card>
+</form> 
