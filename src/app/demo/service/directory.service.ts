@@ -14,7 +14,8 @@ export class DirectoryService {
     }
 
     dataSourceDirectoryList(page, limit, filters) {
-        var filterString = '';        
+        var filterString = '';
+        console.log(filters);        
         if (filters && filters['name'] && filters['name'].value) {
             filterString += "&name_like=" + filters['name'].value;
         }
@@ -24,7 +25,7 @@ export class DirectoryService {
         if (filters && filters['isPrimary'] && filters['isPrimary'].value) {
             filterString += "&isPrimary_like=" + filters['isPrimary'].value;
         }
-        return this.http.get<any>('https://api.cityapp.lu/news/api/configurations/developer/news?page='+page+'&limit='+limit+filterString, {observe: 'response'});
+        return this.http.get<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts?page='+page+'&limit='+limit+filterString, {observe: 'response'});
     }
 
     getDirectoryDetails(uuid: string) {
@@ -32,14 +33,19 @@ export class DirectoryService {
     }
 
     patchDirectoryDetails(uuid: string, directory: Directory) {
-        return this.http.patch<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/' + uuid, directory);
+        return this.http.patch<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid, directory);
     }
 
     postDirectory(directory: Directory) {
-        return this.http.post<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/', directory);
+        return this.http.post<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts', directory);
     }
 
     deleteDirectory(uuid: String) {
-        return this.http.delete<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/' + uuid);
+        return this.http.delete<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid);
+    }
+
+
+    getTags() {
+        return this.http.get<any>('https://api.cityapp.lu/directory/api/configurations/developer/tags');
     }
 }

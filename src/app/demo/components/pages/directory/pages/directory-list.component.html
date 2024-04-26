@@ -4,23 +4,23 @@
             <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Directory</h1>
         </div>
         <div class="col">
-            <p-button label="Ajouter un contact" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/directory/add'" class="ml-2"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03'}"   label="Ajouter un contact" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/directory/add'" class="ml-2"></p-button>
         </div>
     </div>
     <p-table [lazy]="true" [loading]="loading" [value]="directoryList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width: 25%;" pSortableColumn="title">Nom <p-sortIcon field="title"></p-sortIcon></th>
-                <th style="width: 25%;" pSortableColumn="body">Prénom <p-sortIcon field="body"></p-sortIcon></th>
-                <th style="width: 25%;" pSortableColumn="title">Primary <p-sortIcon field="title"></p-sortIcon></th>
-                <th style="width: 25%;" pSortableColumn="body">Priorité <p-sortIcon field="body"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="name">Nom <p-sortIcon field="name"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="firstname">Prénom <p-sortIcon field="firstname"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="isPrimary">Primary <p-sortIcon field="isPrimary"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="priority">Priorité <p-sortIcon field="priority"></p-sortIcon></th>
                 <th style="width: 10%;">Actions</th>
             </tr>
             <tr>
-                <th><p-columnFilter type="text" field="nom"></p-columnFilter></th>
-                <th><p-columnFilter type="text" field="Prénom"></p-columnFilter></th>
-                <th><p-columnFilter type="text" field="Primary"></p-columnFilter></th>
-                <th><p-columnFilter type="text" field="Priorité"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="name" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="firstname" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="isPrimary" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="priority" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
                 
             </tr>
         </ng-template>
@@ -28,7 +28,7 @@
             <tr>
                 <td>{{directory.name}}</td>
                 <td>{{directory.firstname}}</td>
-                <td>{{directory.isprimary}}</td>
+                <td>{{directory.isPrimary}}</td>
                 <td>{{directory.priority}}</td>
             </tr>
         </ng-template>

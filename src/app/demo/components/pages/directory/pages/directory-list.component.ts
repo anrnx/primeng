@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterMatchMode } from 'primeng/api';
 import { Directory } from 'src/app/demo/api/directory';
 import { DirectoryService } from 'src/app/demo/service/directory.service';
 
@@ -14,7 +15,8 @@ export class DirectoryListComponent implements OnInit {
     rowsPerPage: number = 3;
     totalRecords: number = 10;
     loading= false;
-
+    matchModeOptions: { label: string; value: FilterMatchMode; }[];
+    
     constructor(private directoryService: DirectoryService) { }
 
     ngOnInit() {
@@ -25,6 +27,10 @@ export class DirectoryListComponent implements OnInit {
             this.directoryList = data.body;
             this.loading = false;
         }, error => {this.loading = false;});
+
+        this.matchModeOptions = [
+            {label:'Contains', value: FilterMatchMode.CONTAINS}
+        ];
     }
 
     onPageChange(event: any) {

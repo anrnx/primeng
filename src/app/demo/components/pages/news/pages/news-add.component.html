@@ -5,6 +5,6 @@
       <input pInputText id="title" [(ngModel)]="newsAdd.title" [style]="{'margin-bottom': '.5em' }"/>    
     </div>
     <p-editor  [(ngModel)]="newsAdd.description" [style]="{ height: '200px' }"></p-editor>  
-    <p-button label="Supprimer" icon="pi pi-check" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em' }" (click)="save()" label="Ajouter"></p-button>
+    <p-button [style]="{'background-color':'#FC7F03','margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03' }"icon="pi pi-plus" (click)="save()" label="Ajouter"></p-button>
   </div> 
 </p-card>

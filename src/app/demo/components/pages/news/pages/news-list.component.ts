@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilterMatchMode } from 'primeng/api';
 import { News } from 'src/app/demo/api/news';
 import { NewsService } from 'src/app/demo/service/news.service';
 
@@ -14,6 +15,7 @@ export class NewsListComponent implements OnInit {
     rowsPerPage: number = 3;
     totalRecords: number = 10;
     loading= false;
+    matchModeOptions: { label: string; value: FilterMatchMode; }[];
 
     constructor(private newsService: NewsService) { }
 
@@ -25,6 +27,10 @@ export class NewsListComponent implements OnInit {
             this.newsList = data.body;
             this.loading = false;
         }, error => {this.loading = false;});
+
+        this.matchModeOptions = [
+            {label:'Contains', value: FilterMatchMode.CONTAINS}
+        ];
     }
 
     onPageChange(event: any) {

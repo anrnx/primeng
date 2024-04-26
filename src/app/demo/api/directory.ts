@@ -23,4 +23,5 @@ export interface Directory {
     i18n?: any[];
     priority?: number;
     label?: string;
+
 }

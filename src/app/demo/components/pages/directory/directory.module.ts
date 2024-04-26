@@ -18,6 +18,8 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
     imports: [
@@ -34,6 +36,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
         EditorModule,
         CardModule,
         InputSwitchModule,
+        AutoCompleteModule,
+        CalendarModule
     ],
     
     providers: [

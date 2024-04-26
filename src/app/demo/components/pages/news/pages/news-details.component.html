@@ -5,7 +5,7 @@
     <input pInputText id="title" [(ngModel)]="newsDetails.title" />    
   </div>
   <p-editor [(ngModel)]="newsDetails.description" [style]="{ height: '200px' }"></p-editor>
-  <button pButton type="button" icon="pi pi-check" label="Enregistrer" (click)="saveNewsDetails()"></button>
-  <p-button label="Supprimer" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em' }" (click)="deleteNews()"></p-button>
+  <button pButton type="button" [style]="{'background-color':'#FC7F03'}" icon="pi pi-save" label="Enregistrer" (click)="saveNewsDetails()"></button>
+  <p-button label="Supprimer" icon="pi pi-trash" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03' }" (click)="deleteNews()"></p-button>
 </ng-container>
 </p-card>
