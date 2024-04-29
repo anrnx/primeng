@@ -60,7 +60,7 @@ export class DirectoryAddComponent implements OnInit {
         physicaladdress : new FormControl(null, Validators.required),
         city: new FormControl(null, Validators.required),
         postalcode: new FormControl(null, Validators.required),
-        postaladress: new FormControl(null, Validators.required),
+        postaladdress: new FormControl(null, Validators.required),
         daysOfWeek: new FormControl(null, Validators.required),
 
         start: new FormControl(null, Validators.required),
