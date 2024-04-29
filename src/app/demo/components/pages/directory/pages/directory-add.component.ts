@@ -45,27 +45,27 @@ export class DirectoryAddComponent implements OnInit {
       }
 
     directoryFormGroup = new FormGroup({
-        isprimary: new FormControl(null, Validators.required),
+        isprimary: new FormControl(null),
         name: new FormControl(null, Validators.required),
-        firstname: new FormControl(null, Validators.required),
-        priority: new FormControl(null, Validators.required),
-        label: new FormControl(null, Validators.required),
-        emaillabel: new FormControl(null, Validators.required),
-        description: new FormControl(null, Validators.required),
-        tags: new FormControl(null, Validators.required),
-        emails: new FormControl(null, Validators.required),
-        phonenumberlabel: new FormControl(null, Validators.required),
-        phonenumber : new FormControl(null, Validators.required),
-        website: new FormControl(null, Validators.required),
-        physicaladdress : new FormControl(null, Validators.required),
-        city: new FormControl(null, Validators.required),
-        postalcode: new FormControl(null, Validators.required),
-        postaladdress: new FormControl(null, Validators.required),
-        daysOfWeek: new FormControl(null, Validators.required),
+        firstname: new FormControl(null),
+        priority: new FormControl(null),
+        label: new FormControl(null),
+        emaillabel: new FormControl(null),
+        description: new FormControl(null),
+        tags: new FormControl([]),
+        emails: new FormControl([]),
+        phonenumberlabel: new FormControl(null),
+        phonenumber : new FormControl(null),
+        website: new FormControl(null),
+        physicaladdress : new FormControl(null),
+        city: new FormControl(null),
+        postalcode: new FormControl(null),
+        postaladdress: new FormControl(null),
+        daysOfWeek: new FormControl(null),
 
-        start: new FormControl(null, Validators.required),
-        end: new FormControl(null, Validators.required),
-        isAppointment: new FormControl(null, Validators.required),
+        start: new FormControl(null),
+        end: new FormControl(null),
+        isAppointment: new FormControl(null),
     });
 
     ngOnInit() {   
@@ -110,6 +110,7 @@ export class DirectoryAddComponent implements OnInit {
             this.suggestionTags = data.filter(tag => tag.name.toLowerCase().includes($event.query.toLowerCase()));
         });
     }
+
 
     save() {        
         console.log(this.directoryAdd); 

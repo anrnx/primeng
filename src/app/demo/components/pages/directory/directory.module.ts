@@ -20,6 +20,7 @@ import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CalendarModule } from 'primeng/calendar';
+import { MessageModule } from 'primeng/message';
 
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import { CalendarModule } from 'primeng/calendar';
         InputSwitchModule,
         AutoCompleteModule,
         CalendarModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MessageModule
     ],
     
     providers: [

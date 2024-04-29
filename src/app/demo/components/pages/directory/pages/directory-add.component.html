@@ -1,11 +1,8 @@
 <form [formGroup]="directoryFormGroup">
-  <!-- <div *ngFor="let err of getErrorList(directoryFormGroup.controls.name.errors)">
-    <div>You entered not valid input</div>
-  </div> -->
-
+  
   <p-card>
     <div class="field grid">
-      <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" class="ml-2"></p-button>
+      <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
     </div> 
     <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
     <div *ngIf="directoryAdd">     
@@ -18,6 +15,7 @@
         <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
         <div class="col-12 md:col-10">
           <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="name"/>
+          <p-message *ngIf="directoryFormGroup.controls.name.errors && directoryFormGroup.controls.name.errors['required']" [style]="{'margin-left': '.5em'}" severity="error" text="Field is required"></p-message>
         </div>
       </div>
 
@@ -45,7 +43,7 @@
       <div class="field grid">
         <label for="tags" class="col-12 mb-2 md:col-2 md:mb-0">Tags</label>        
           <div class="col-12 md:col-10">
-            <p-autoComplete [dropdown]="true" formControlName="tags" [suggestions]="suggestionTags" (completeMethod)="filterTags($event)" field="name" [multiple]="true"></p-autoComplete>
+            <p-autoComplete  [dropdown]="true" formControlName="tags" [suggestions]="suggestionTags" (completeMethod)="filterTags($event)" field="name" [multiple]="true"></p-autoComplete>
             </div>
     </div>  
 
@@ -56,8 +54,8 @@
       <ng-container *ngFor="let email of emails; index as i;">
         <div class="field grid">
           <div class="col-12 md:col-10">
-            <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  formControlName="emaillabel" />
-            <input pInputText id="longitude" aria-describedby="longitude-help" formControlName="email.email" />
+            <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="email.label" />
+            <input pInputText id="longitude" aria-describedby="longitude-help" [[(ngModel)]="email.email" />
             <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
           </div>
         </div>
@@ -72,8 +70,8 @@
       <ng-container *ngFor="let phonenumber of phoneNumbers; index as i;">
         <div class="field grid">
           <div class="col-12 md:col-10">
-            <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-right': '.5em'}"  formControlName="phonenumberlabel" />
-            <input pInputText id="phone" aria-describedby="longitude-help" formControlName="phonenumber" />
+            <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="phonenumber.label" />
+            <input pInputText id="phone" aria-describedby="longitude-help" [[(ngModel)]="phonenumber.phone" />
             <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removePhoneNumber(i)" class="ml-2"></p-button>
           </div>
         </div>
@@ -132,9 +130,9 @@
                 <div class="field grid">
                   <label class="col-12 md:col-10 mb-2 md:col-2 md:mb-0">{{ k }}</label>
                   <div  class="col-15 md:col-10" *ngFor="let slot of daysOfWeek[k]">
-                    <p-calendar [style]="{'margin-right':'.5em'}" formControlName="start" [timeOnly]="true"></p-calendar>
-                    <p-calendar formControlName="end" [timeOnly]="true" [style]="{'margin-right':'.5em'}"></p-calendar>
-                    <p-inputSwitch formControlName="isAppointment"></p-inputSwitch>
+                    <p-calendar [style]="{'margin-right':'.5em'}" [[(ngModel)]="slot.start" [timeOnly]="true"></p-calendar>
+                    <p-calendar [[(ngModel)]="slot.end" [timeOnly]="true" [style]="{'margin-right':'.5em'}"></p-calendar>
+                    <p-inputSwitch [[(ngModel)]="slot.isAppointment"></p-inputSwitch>
                     <p-button [style]="{'background-color':'#FC7F03'}" label="Delete" type="button" pRipple icon="pi pi-check" (click)="removeDay(k)" class="ml-2"></p-button>
                   </div>
               </div>    
