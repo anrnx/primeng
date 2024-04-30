@@ -1,4 +1,5 @@
-<p-card>
+
+  <p-card>
     <div class="grid">
         <div class="col-8">
             <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Directory</h1>
@@ -30,7 +31,12 @@
                 <td>{{directory.firstname}}</td>
                 <td>{{directory.isPrimary}}</td>
                 <td>{{directory.priority}}</td>
+
+                <td>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" [style]="{'background-color':'#FC7F03'}"  [routerLink]="'/pages/directory/'+directory.uuid"></button>
+                </td>
+               
             </tr>
         </ng-template>
     </p-table>
-</p-card>
+  </p-card>

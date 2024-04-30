@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Directory } from 'src/app/demo/api/directory';
@@ -12,6 +13,31 @@ export class DirectoryDetailsComponent implements OnInit {
 
     directoryDetails: Directory; 
     uuid: string;
+
+
+    // directoryFormGroup = new FormGroup({
+    //     isprimary: new FormControl(null),
+    //     name: new FormControl(null, Validators.required),
+    //     firstname: new FormControl(null),
+    //     priority: new FormControl(null),
+    //     label: new FormControl(null),
+    //     emaillabel: new FormControl(null),
+    //     description: new FormControl(null),
+    //     tags: new FormControl([]),
+    //     emails: new FormControl([]),
+    //     phonenumberlabel: new FormControl(null),
+    //     phonenumber : new FormControl(null),
+    //     website: new FormControl(null),
+    //     physicaladdress : new FormControl(null),
+    //     city: new FormControl(null),
+    //     postalcode: new FormControl(null),
+    //     postaladdress: new FormControl(null),
+    //     daysOfWeek: new FormControl(null),
+
+    //     start: new FormControl(null),
+    //     end: new FormControl(null),
+    //     isAppointment: new FormControl(null),
+    // });
 
     constructor(private directoryService: DirectoryService, private route: ActivatedRoute, public messageService: MessageService, private router: Router ) { }
 
@@ -39,7 +65,7 @@ export class DirectoryDetailsComponent implements OnInit {
         this.messageService.add({ severity: 'warn', summary: 'Error', detail: error.message});
     }
 
-    saveNewsDetails() {
+    saveDetails() {
         this.directoryService.patchDirectoryDetails(this.uuid, this.directoryDetails).subscribe((data: any) => {
             this.directoryDetails = data; 
             this.updateSuccess();

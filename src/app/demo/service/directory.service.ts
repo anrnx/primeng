@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { News } from '../api/news';
 import { Directory } from '../api/directory';
 
 
@@ -29,11 +28,11 @@ export class DirectoryService {
     }
 
     getDirectoryDetails(uuid: string) {
-        return this.http.get<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid);
+        return this.http.get<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/' + uuid);
     }
 
     patchDirectoryDetails(uuid: string, directory: Directory) {
-        return this.http.patch<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid, directory);
+        return this.http.patch<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/' + uuid, directory);
     }
 
     postDirectory(directory: Directory) {
@@ -43,7 +42,6 @@ export class DirectoryService {
     deleteDirectory(uuid: String) {
         return this.http.delete<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid);
     }
-
 
     getTags() {
         return this.http.get<any>('https://api.cityapp.lu/directory/api/configurations/developer/tags');
