@@ -14,7 +14,6 @@ export class DirectoryDetailsComponent implements OnInit {
     directoryDetails: Directory; 
     uuid: string;
 
-
     // directoryFormGroup = new FormGroup({
     //     isprimary: new FormControl(null),
     //     name: new FormControl(null, Validators.required),
@@ -25,8 +24,8 @@ export class DirectoryDetailsComponent implements OnInit {
     //     description: new FormControl(null),
     //     tags: new FormControl([]),
     //     emails: new FormControl([]),
-    //     phonenumberlabel: new FormControl(null),
-    //     phonenumber : new FormControl(null),
+    //     phonenumberlabel: new FormControl([]),
+    //     phonenumber : new FormControl([]),
     //     website: new FormControl(null),
     //     physicaladdress : new FormControl(null),
     //     city: new FormControl(null),
