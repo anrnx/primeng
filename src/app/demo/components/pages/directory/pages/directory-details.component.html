@@ -2,26 +2,26 @@
 <p-card>
   <div class="field grid">
     <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="saveDetails()" class="ml-2"></p-button>
-  </div> 
-   
+  </div>
+
   <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
-  <div *ngIf="directoryDetails">     
+  <div *ngIf="directoryDetails">
     <div class="field grid">
       <label class="col-12 mb-2 md:col-2 md:mb-0">Mise en avant</label>
       <p-inputSwitch fromControlName="isprimary"></p-inputSwitch>
     </div>
 
     <div class="field grid">
-      <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
+      <label for="name" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
       <div class="col-12 md:col-10">
-        <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.name"/>
+        <input pInputText id="name" aria-describedby="name-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.name"/>
       </div>
     </div>
 
     <div class="field grid">
-      <label for="firstname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
+      <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
       <div class="col-12 md:col-10">
-        <input pInputText id="firsname" aria-describedby="firsname-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.firstname"/>
+        <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.lastname"/>
       </div>
     </div>
 
@@ -38,13 +38,13 @@
         <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.label" />
       </div>
     </div>
-    
+
     <div class="field grid">
-      <label for="tags" class="col-12 mb-2 md:col-2 md:mb-0">Tags</label>        
+      <label for="tags" class="col-12 mb-2 md:col-2 md:mb-0">Tags</label>
         <div class="col-12 md:col-10">
           <p-autoComplete  [dropdown]="true" [(ngModel)]="directoryDetails.tags" [suggestions]="suggestionTags" (completeMethod)="filterTags($event)" field="name" [multiple]="true"></p-autoComplete>
           </div>
-    </div>  
+    </div>
 
     <div class="field grid">
       <label for="email" class="col-12 mb-2 md:col-2 md:mb-0">Email</label>
@@ -59,14 +59,14 @@
         <input pInputText id="address" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}"  [(ngModel)]="directoryDetails.postaladdress" />
       </div>
     </div>
-    
+
     <div class="field grid">
       <label for="postalcode" class="col-12 mb-2 md:col-2 md:mb-0">Code postal</label>
       <div class="col-12 md:col-10">
         <input pInputText id="zip" aria-describedby="zip-help" [style]="{ 'margin-bottom': '.5em'}" [(ngModel)]="directoryDetails.postalcode" />
       </div>
     </div>
-    
+
     <div class="field grid">
       <label for="physicaladdress" class="col-12 mb-2 md:col-2 md:mb-0">Adresse Physique</label>
       <div class="col-12 md:col-10">
@@ -105,5 +105,4 @@
 </p-card>
 <!-- </form> -->
 
-  
-  
+

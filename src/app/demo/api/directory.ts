@@ -1,7 +1,7 @@
 export interface Directory {
     uuid?: string;
 
-    firstname?: string;
+    name?: string;
     lastname?: string;
     city?: string;
     physicalAddress?: string;
@@ -19,14 +19,14 @@ export interface Directory {
 
     isprimary?: boolean;
     displayPosition?: number;
-    
+
     latitude?: number;
     longitude?: number;
-    
+
     schedule ?: string[];
     tags?: string[];
     website?: string;
-    
+
     i18n?: any[];
     priority?: number;
 }

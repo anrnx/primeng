@@ -11,7 +11,7 @@ import { DirectoryService } from 'src/app/demo/service/directory.service';
 })
 export class DirectoryDetailsComponent implements OnInit {
 
-    directoryDetails: Directory; 
+    directoryDetails: Directory;
     uuid: string;
 
     // directoryFormGroup = new FormGroup({
@@ -40,7 +40,7 @@ export class DirectoryDetailsComponent implements OnInit {
 
     constructor(private directoryService: DirectoryService, private route: ActivatedRoute, public messageService: MessageService, private router: Router ) { }
 
-    ngOnInit() {   
+    ngOnInit() {
         this.uuid = this.route.snapshot.params['uuid'];
         this.directoryService.getDirectoryDetails(this.uuid).subscribe((data: any) => {
             this.directoryDetails = data;
@@ -48,7 +48,7 @@ export class DirectoryDetailsComponent implements OnInit {
     }
 
     updateSuccess() {
-        
+
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'News changed' });
     }
 
@@ -66,9 +66,9 @@ export class DirectoryDetailsComponent implements OnInit {
 
     saveDetails() {
         this.directoryService.patchDirectoryDetails(this.uuid, this.directoryDetails).subscribe((data: any) => {
-            this.directoryDetails = data; 
+            this.directoryDetails = data;
             this.updateSuccess();
-            this.router.navigate(['pages/news']);    
+            this.router.navigate(['pages/news']);
         }, error => {
             this.updateFail(error);
         });
@@ -77,7 +77,7 @@ export class DirectoryDetailsComponent implements OnInit {
     deleteNews() {
         this.directoryService.deleteDirectory(this.uuid).subscribe((data: any) => {
             this.deleteSuccess();
-            this.router.navigate(['pages/news']);    
+            this.router.navigate(['pages/news']);
         }, error => {
             this.deleteFail(error);
         });

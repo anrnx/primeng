@@ -16,8 +16,6 @@ export class DirectoryAddComponent implements OnInit {
         return Object.keys(obj);
     }
 
-    
-
     directoryAdd: Directory = {tags: []};
     uuid: string;
 
@@ -36,8 +34,8 @@ export class DirectoryAddComponent implements OnInit {
 
     suggestionTags: any[] = [];
 
-    constructor(private fb:FormBuilder, private directoryService: DirectoryService, private router: Router, public messageService: MessageService) { 
-        
+    constructor(private fb:FormBuilder, private directoryService: DirectoryService, private router: Router, public messageService: MessageService) {
+
     }
 
     getErrorList(errorObject) {
@@ -68,8 +66,8 @@ export class DirectoryAddComponent implements OnInit {
         isAppointment: new FormControl(null),
     });
 
-    ngOnInit() {   
-    
+    ngOnInit() {
+
     }
 
     addEmail() {
@@ -87,7 +85,7 @@ export class DirectoryAddComponent implements OnInit {
     removeDay(day, index) {
         this.daysOfWeek[day].splice(index, 1);
     }
-    
+
     showSuccess() {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Contact added' });
     }
@@ -101,7 +99,7 @@ export class DirectoryAddComponent implements OnInit {
     }
 
     showError(error) {
-        
+
         this.messageService.add({ severity: 'warn', summary: 'Error', detail: error.message});
     }
 
@@ -112,11 +110,20 @@ export class DirectoryAddComponent implements OnInit {
     }
 
 
-    save() {        
-        console.log(this.directoryAdd); 
+    save() {
+        console.log(this.directoryAdd);
+
+        // Voici comment recupérer les valeurs d'un formGroup
+        this.directoryAdd.isprimary = this.directoryFormGroup.get('isprimary').value;
+        this.directoryAdd.name = this.directoryFormGroup.get('name').value;
+        this.directoryAdd.lastname = this.directoryFormGroup.get('lastname').value;
+        this.directoryAdd.priority = this.directoryFormGroup.get('priority').value;
+        this.directoryAdd.label = this.directoryFormGroup.get('label').value;
+        this.directoryAdd.description = this.directoryFormGroup.get('description').value;
+
         this.directoryService.postDirectory(this.directoryAdd).subscribe((data: any) => {
             this.showSuccess();
-            this.router.navigate(['pages/directory']);            
+            this.router.navigate(['pages/directory']);
         }, error => {
             this.showError(error);
         });
