@@ -2,7 +2,7 @@ export interface Directory {
     uuid?: string;
 
     name?: string;
-    lastname?: string;
+    firstname?: string;
     city?: string;
     physicalAddress?: string;
     postalAddress?: string;
@@ -17,7 +17,7 @@ export interface Directory {
     phonenumbers?: any[];
     label?: string;
 
-    isprimary?: boolean;
+    isPrimary?: boolean;
     displayPosition?: number;
 
     latitude?: number;

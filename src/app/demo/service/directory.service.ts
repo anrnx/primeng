@@ -40,7 +40,7 @@ export class DirectoryService {
     }
 
     deleteDirectory(uuid: String) {
-        return this.http.delete<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts' + uuid);
+        return this.http.delete<any>('https://api.cityapp.lu/directory/api/configurations/developer/contacts/' + uuid);
     }
 
     getTags() {

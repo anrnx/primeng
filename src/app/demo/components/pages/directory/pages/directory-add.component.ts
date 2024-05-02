@@ -39,17 +39,20 @@ export class DirectoryAddComponent implements OnInit {
       }
 
     directoryFormGroup = new FormGroup({
-        isprimary: new FormControl(false),
+            isPrimary: new FormControl(false),
             name: new FormControl(null, Validators.required),
-            lastname: new FormControl(null),
+            firstname: new FormControl(null),
             displayPosition: new FormControl(null),
             label: new FormControl(null),            
             description: new FormControl(null),           
             website: new FormControl(null),
+            tags: new FormControl(null),
             physicaladdress : new FormControl(null),
             city: new FormControl(null),
             postalcode: new FormControl(null),
             postaladdress: new FormControl(null),
+            latitude: new FormControl(null),
+            longitude: new FormControl(null),
     });
 
     // this.directoryAdd.tags
@@ -116,11 +119,19 @@ export class DirectoryAddComponent implements OnInit {
 
         // Voici comment recupérer les valeurs d'un formGroup
         this.directoryAdd.name = this.directoryFormGroup.get('name').value;
-        this.directoryAdd.lastname = this.directoryFormGroup.get('lastname').value;
+        this.directoryAdd.firstname = this.directoryFormGroup.get('firstname').value;
         this.directoryAdd.priority = this.directoryFormGroup.get('displayPosition').value;
-        this.directoryAdd.isprimary = this.directoryFormGroup.get('isprimary').value;
+        this.directoryAdd.isPrimary = this.directoryFormGroup.get('isPrimary').value;
         this.directoryAdd.label = this.directoryFormGroup.get('label').value;
+        this.directoryAdd.tags = this.directoryFormGroup.get('tags').value;
         this.directoryAdd.description = this.directoryFormGroup.get('description').value;
+        this.directoryAdd.website = this.directoryFormGroup.get('website').value;
+        this.directoryAdd.physicalAddress = this.directoryFormGroup.get('physicaladdress').value;
+        this.directoryAdd.city = this.directoryFormGroup.get('city').value;
+        this.directoryAdd.postalcode = this.directoryFormGroup.get('postalcode').value;
+        this.directoryAdd.postalAddress = this.directoryFormGroup.get('postaladdress').value;
+        this.directoryAdd.latitude = this.directoryFormGroup.get('latitude').value;
+        this.directoryAdd.longitude = this.directoryFormGroup.get('longitude').value;
 
         this.directoryService.postDirectory(this.directoryAdd).subscribe((data: any) => {
             this.showSuccess();

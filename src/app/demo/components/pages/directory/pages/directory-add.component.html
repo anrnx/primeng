@@ -7,21 +7,21 @@
     <div *ngIf="directoryAdd">     
       <div class="field grid">
         <label class="col-12 mb-2 md:col-2 md:mb-0">Mise en avant</label>
-        <p-inputSwitch fromControlName="isprimary"></p-inputSwitch>
+        <p-inputSwitch formControlName="isPrimary"></p-inputSwitch>
       </div>
 
       <div class="field grid">
-        <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
+        <label for="name" class="col-12 mb-2 md:col-2 md:mb-0">Nom</label>
         <div class="col-12 md:col-10">
-          <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="name"/>
+          <input pInputText id="name" aria-describedby="name-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="name"/>
           <p-message *ngIf="directoryFormGroup.controls.name.errors && directoryFormGroup.controls.name.errors['required']" [style]="{'margin-left': '.5em'}" severity="error" text="Field is required"></p-message>
         </div>
       </div>
 
       <div class="field grid">
-        <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
+        <label for="firstname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
         <div class="col-12 md:col-10">
-          <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}"formControlName="lastname" />
+          <input pInputText id="firstname" aria-describedby="firstname-help" [style]="{ 'margin-bottom': '.5em'}"formControlName="firstname" />
         </div>
       </div>
 
@@ -29,6 +29,15 @@
         <label for="displayPosition" class="col-12 mb-2 md:col-2 md:mb-0">Priorité d'affichage</label>
         <div class="col-12 md:col-10">
           <input pInputText id="displayPosition" aria-describedby="displayPosition-help"  [style]="{ 'margin-bottom': '.5em'}" formControlName="displayPosition" />
+        </div>
+      </div>
+
+       <div class="field grid">
+        <label for="latitude" class="col-12 mb-2 md:col-2 md:mb-0">latitude</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="latitude" />
+          <label for="longitude" class="col-12 mb-2 md:col-2 md:mb-0">Longitude</label>
+          <input pInputText id="longitude" aria-describedby="longitude-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="longitude" />
         </div>
       </div>
 

@@ -2,12 +2,13 @@
   <p-card>
     <div class="field grid">
       <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
+      <p-button [style]="{'background-color': '#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="deleteContact()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
     </div> 
     <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
     <div *ngIf="directoryDetails">     
       <div class="field grid">
         <label class="col-12 mb-2 md:col-2 md:mb-0">Mise en avant</label>
-        <p-inputSwitch fromControlName="isprimary"></p-inputSwitch>
+        <p-inputSwitch formControlName="isPrimary"></p-inputSwitch>
       </div>
 
       <div class="field grid">
@@ -19,9 +20,9 @@
       </div>
 
       <div class="field grid">
-        <label for="lastname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
+        <label for="firstname" class="col-12 mb-2 md:col-2 md:mb-0">Prénom</label>
         <div class="col-12 md:col-10">
-          <input pInputText id="lastname" aria-describedby="lastname-help" [style]="{ 'margin-bottom': '.5em'}"formControlName="lastname" />
+          <input pInputText id="firstname" aria-describedby="firstname-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="firstname" />
         </div>
       </div>
 
@@ -36,6 +37,15 @@
         <label for="label" class="col-12 mb-2 md:col-2 md:mb-0">Label</label>
         <div class="col-12 md:col-10">
           <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="label" />
+        </div>
+      </div>
+
+      <div class="field grid">
+        <label for="latitude" class="col-12 mb-2 md:col-2 md:mb-0">latitude</label>
+        <div class="col-12 md:col-10">
+          <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="latitude" />
+          <label for="longitude" class="col-12 mb-2 md:col-2 md:mb-0">Longitude</label>
+          <input pInputText id="longitude" aria-describedby="longitude-help" [style]="{ 'margin-bottom': '.5em'}" formControlName="longitude" />
         </div>
       </div>
       
