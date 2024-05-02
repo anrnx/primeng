@@ -16,12 +16,8 @@ export class DirectoryAddComponent implements OnInit {
         return Object.keys(obj);
     }
 
-    directoryAdd: Directory = {tags: []};
-    uuid: string;
-
-    emails: any[] = [];
-    phoneNumbers: any[] = [];
-
+    directoryAdd: Directory = {tags: [], emails: [], phonenumbers: []};
+    
     daysOfWeek: any = {
         Monday: [],
         Tuesday: [],
@@ -43,39 +39,44 @@ export class DirectoryAddComponent implements OnInit {
       }
 
     directoryFormGroup = new FormGroup({
-        isprimary: new FormControl(null),
-        name: new FormControl(null, Validators.required),
-        firstname: new FormControl(null),
-        priority: new FormControl(null),
-        label: new FormControl(null),
-        emaillabel: new FormControl(null),
-        description: new FormControl(null),
-        tags: new FormControl([]),
-        emails: new FormControl([]),
-        phonenumberlabel: new FormControl([]),
-        phonenumber : new FormControl([]),
-        website: new FormControl(null),
-        physicaladdress : new FormControl(null),
-        city: new FormControl(null),
-        postalcode: new FormControl(null),
-        postaladdress: new FormControl(null),
-        daysOfWeek: new FormControl(null),
-
-        start: new FormControl(null),
-        end: new FormControl(null),
-        isAppointment: new FormControl(null),
+        isprimary: new FormControl(false),
+            name: new FormControl(null, Validators.required),
+            lastname: new FormControl(null),
+            displayPosition: new FormControl(null),
+            label: new FormControl(null),            
+            description: new FormControl(null),           
+            website: new FormControl(null),
+            physicaladdress : new FormControl(null),
+            city: new FormControl(null),
+            postalcode: new FormControl(null),
+            postaladdress: new FormControl(null),
     });
 
-    ngOnInit() {
+    // this.directoryAdd.tags
+    // this.directoryAdd.phonenumbers
+    // this.directoryAdd.emails
+    // this.directoryAdd.schedule 
+    
+    // street?: string;
+    // latitude?: number;
+    // longitude?: number; 
+    
+    // this.directoryAdd.pictureUrl
+    // this.directoryAdd.i18n
+    // this.directoryAdd.avatarUrl
 
+    ngOnInit() {
+        if(this.directoryAdd.phonenumbers == null) this.directoryAdd.phonenumbers=[];    
+        if(this.directoryAdd.emails == null) this.directoryAdd.emails=[];    
+        if(this.directoryAdd.schedule == null) this.directoryAdd.schedule= this.daysOfWeek;    
     }
 
     addEmail() {
-        this.emails.push({label: '', email: ''});
+        this.directoryAdd.emails.push({label: '', email: ''});
     }
 
     removeEmail(index) {
-        this.emails.splice(index, 1);
+        this.directoryAdd.emails.splice(index, 1);
     }
 
     addDay(day) {
@@ -91,11 +92,11 @@ export class DirectoryAddComponent implements OnInit {
     }
 
     addPhoneNumber() {
-        this.phoneNumbers.push({label: '', phone: ''});
+        this.directoryAdd.phonenumbers.push({label: '', phone: ''});
     }
 
     removePhoneNumber(index) {
-        this.phoneNumbers.splice(index, 1);
+        this.directoryAdd.phonenumbers.splice(index, 1);
     }
 
     showError(error) {
@@ -114,10 +115,10 @@ export class DirectoryAddComponent implements OnInit {
         console.log(this.directoryAdd);
 
         // Voici comment recupérer les valeurs d'un formGroup
-        this.directoryAdd.isprimary = this.directoryFormGroup.get('isprimary').value;
         this.directoryAdd.name = this.directoryFormGroup.get('name').value;
         this.directoryAdd.lastname = this.directoryFormGroup.get('lastname').value;
-        this.directoryAdd.priority = this.directoryFormGroup.get('priority').value;
+        this.directoryAdd.priority = this.directoryFormGroup.get('displayPosition').value;
+        this.directoryAdd.isprimary = this.directoryFormGroup.get('isprimary').value;
         this.directoryAdd.label = this.directoryFormGroup.get('label').value;
         this.directoryAdd.description = this.directoryFormGroup.get('description').value;
 

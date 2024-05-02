@@ -13,8 +13,8 @@ export interface Directory {
 
     pictureUrl?: string;
 
-    emails?: string[];
-    phonenumbers?: string[];
+    emails?: any[];
+    phonenumbers?: any[];
     label?: string;
 
     isprimary?: boolean;
