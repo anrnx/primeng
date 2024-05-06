@@ -10,6 +10,10 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { NewsService } from '../../service/news.service';
+import { ImageModule } from 'primeng/image';
+import { StatistiquesService } from '../../service/statistiques.service';
+import { CalendarModule } from 'primeng/calendar';
+
 
 @NgModule({
     imports: [
@@ -21,11 +25,14 @@ import { NewsService } from '../../service/news.service';
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        DashboardsRoutingModule
+        DashboardsRoutingModule,
+        ImageModule,
+        CalendarModule,
     ],
     
     providers: [
-       NewsService
+       NewsService,
+       StatistiquesService
     ],
 
     declarations: [DashboardComponent]

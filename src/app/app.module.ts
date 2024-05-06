@@ -23,13 +23,15 @@ import { ForbiddenComponent } from './demo/components/forbidden/forbidden.compon
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent,  UnauthorisedComponent, ForbiddenComponent],
-    imports: [AppRoutingModule, ToastModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule, CardModule],
+    imports: [AppRoutingModule, BrowserModule, ToastModule, BrowserAnimationsModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule, CardModule],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,

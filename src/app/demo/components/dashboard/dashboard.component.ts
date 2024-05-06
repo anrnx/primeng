@@ -7,6 +7,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { Squad, SuperHero } from '../../api/superhero';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../api/news';
+import { StatistiquesService } from '../../service/statistiques.service';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { News } from '../../api/news';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 [x: string]: any;
+
+    rangeDates: Date[] | undefined;
 
     items!: MenuItem[];
 
@@ -30,59 +33,64 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     newsList: News[] = [];
 
-    constructor(private productService: ProductService, public layoutService: LayoutService, public newsService: NewsService) {
+    dateFrom = "2024-04-03";
+    dateTo = "2024-05-03";
+    constructor(private statistiquesService: StatistiquesService, private productService: ProductService, public layoutService: LayoutService, public newsService: NewsService) {
         
-        this.subscription = this.layoutService.configUpdate$
-        .pipe(debounceTime(25))
-        .subscribe((config) => {
-            this.initChart();
-        });
+        
     }
 
-    async getNews() {
-        (await this.newsService.getNewsList()).subscribe(data => {
+    getStatsistics() {
+        this.statistiquesService.getStats(this.dateFrom, this.dateTo).subscribe(data => {
             console.log(data);
-            this.newsList = data;
+            this.initChart(data)
         });
     }
 
 
     ngOnInit() {
-        this.initChart();
-        this.productService.getProductsSmall().then(data => this.products = data);
-       
-        this.items = [
-            { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-            { label: 'Remove', icon: 'pi pi-fw pi-minus' }
-        ];
+        this.getStatsistics();        
     }
 
-    initChart() {
+    couleurs: string[] = [
+        "#FF0000", // Rouge
+        "#00FF00", // Vert
+        "#0000FF", // Bleu
+        "#FFFF00", // Jaune
+        "#FF00FF", // Magenta
+        "#00FFFF"  // Cyan
+      ];
+    
+      afficherCouleurAleatoire() {
+        const indiceAleatoire = Math.floor(Math.random() * this.couleurs.length);
+        const couleurAleatoire = this.couleurs[indiceAleatoire];
+        return couleurAleatoire;
+      }
+
+    initChart(stats) {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
+        var datasets = [];
+        
+        stats.series.forEach(serie => {
+            datasets.push({
+                label: serie.label,
+                data: serie.data,
+                fill: false,
+                backgroundColor: this.afficherCouleurAleatoire(),
+                borderColor: this.afficherCouleurAleatoire(),
+                tension: .4
+            },);
+        });
+
+       
+        
         this.chartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    borderColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    tension: .4
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--green-600'),
-                    borderColor: documentStyle.getPropertyValue('--green-600'),
-                    tension: .4
-                }
-            ]
+            labels: stats.labels,
+            datasets: datasets,
         };
 
         this.chartOptions = {
@@ -114,6 +122,33 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 }
             }
         };
+    }
+
+    onDateChange() {
+        if (this.rangeDates.length === 2) {
+            this.dateFrom = this.format(this.rangeDates[0], 'yyyy-MM-dd');
+            this.dateTo = this.format(this.rangeDates[1], 'yyyy-MM-dd');
+            this.getStatsistics();
+        } else {
+            return;
+        }
+    }
+
+    format = function date2str(x, y) {
+        var z = {
+            M: x.getMonth() + 1,
+            d: x.getDate(),
+            h: x.getHours(),
+            m: x.getMinutes(),
+            s: x.getSeconds()
+        };
+        y = y.replace(/(M+|d+|h+|m+|s+)/g, function(v) {
+            return ((v.length > 1 ? "0" : "") + z[v.slice(-1)]).slice(-2)
+        });
+    
+        return y.replace(/(y+)/g, function(v) {
+            return x.getFullYear().toString().slice(-v.length)
+        });
     }
 
     ngOnDestroy() {
