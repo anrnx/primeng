@@ -13,6 +13,8 @@ import { NewsService } from '../../service/news.service';
 import { ImageModule } from 'primeng/image';
 import { StatistiquesService } from '../../service/statistiques.service';
 import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { CalendarModule } from 'primeng/calendar';
         DashboardsRoutingModule,
         ImageModule,
         CalendarModule,
+        DropdownModule,
+        PickerComponent
     ],
     
     providers: [

@@ -13,6 +13,9 @@ $gutter: 1rem; //for primeflex grid system
 @import "assets/demo/styles/badges.scss";
 @import "assets/demo/styles/code.scss";
 
+/* Custom */
+@import '@ctrl/ngx-emoji-mart/picker';
+
 p-autocomplete .p-button {
  background: #FC7F03 !important;
 }

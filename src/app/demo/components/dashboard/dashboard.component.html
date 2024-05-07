@@ -2,9 +2,13 @@
         <div class="col-12 xl:col-6">
             <div class="card">
                 <h5>Sales Overview</h5>
+
+                <p-dropdown [options]="choice" [(ngModel)]="selectedChoice" optionLabel="title" placeholder="Select" /> 
                 <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [touchUI]="true" />
 
                 <p-button [style]="{'background-color': '#FC7F03','margin-left': '.5em'}" label="Apply" class="mt-3" (click)="onDateChange()"></p-button>
+
+                <p-button [style]="{'background-color': '#FC7F03','margin-left': '.5em'}" label="test" class="mt-3" (click)="getStatChoice()"></p-button>
 
                 <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
                 <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
@@ -12,6 +16,14 @@
 
             </div>
             </div>
+
+            <emoji-mart title="Pick your emoji…" emoji="point_up"></emoji-mart>
+            <emoji-mart set="emojione"></emoji-mart>
+            <emoji-mart (emojiClick)="addEmoji($event)"></emoji-mart>
+            <emoji-mart [style]="{ position: 'absolute', bottom: '20px', right: '20px' }"></emoji-mart>
+            <emoji-mart
+            [i18n]="{ search: 'Recherche', categories: { search: 'Résultats de recherche', recent: 'Récents' } }"
+            ></emoji-mart>
 
         <div class="col-12 lg:col-6 xl:col-3">
             <div class="card mb-0">

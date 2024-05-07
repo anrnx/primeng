@@ -7,7 +7,9 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { Squad, SuperHero } from '../../api/superhero';
 import { NewsService } from '../../service/news.service';
 import { News } from '../../api/news';
+import { Choice } from '../../api/choice';
 import { StatistiquesService } from '../../service/statistiques.service';
+
 
 
 @Component({
@@ -17,6 +19,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 [x: string]: any;
 
     rangeDates: Date[] | undefined;
+
+    choice: Choice[] | undefined;
+
+    selectedChoice: Choice | undefined;
 
     items!: MenuItem[];
 
@@ -35,21 +41,35 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     dateFrom = "2024-04-03";
     dateTo = "2024-05-03";
+
     constructor(private statistiquesService: StatistiquesService, private productService: ProductService, public layoutService: LayoutService, public newsService: NewsService) {
         
         
     }
 
     getStatsistics() {
-        this.statistiquesService.getStats(this.dateFrom, this.dateTo).subscribe(data => {
+        this.statistiquesService.getStats(this.dateFrom, this.dateTo, this.selectedChoice).subscribe(data => {
             console.log(data);
             this.initChart(data)
         });
     }
 
+    addEmoji(event: any) {
+        console.log(event.emoji);
+    }
+    
+    getStatChoice() {
+       
+        this.statistiquesService.getStatsList().subscribe(data => {
+            this.choice = data.statistics;
+
+            if (!this.selectedChoice) this.selectedChoice = this.choice[0];
+            this.getStatsistics();             
+        });
+    }
 
     ngOnInit() {
-        this.getStatsistics();        
+        this.getStatChoice();      
     }
 
     couleurs: string[] = [
