@@ -16,6 +16,8 @@ import { EditorModule } from 'primeng/editor';
 import { NewsAddComponent } from './pages/news-add.component';
 import { CardModule } from 'primeng/card';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { ConfirmationService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
     imports: [
@@ -31,11 +33,13 @@ import { TabMenuModule } from 'primeng/tabmenu';
         InputTextModule,
         EditorModule,
         CardModule,
-        TabMenuModule
+        TabMenuModule,
+        ConfirmDialogModule
     ],
     
     providers: [
        NewsService,
+       ConfirmationService
     ],
 
     declarations: [NewsAddComponent, NewsListComponent, NewsDetailsComponent]

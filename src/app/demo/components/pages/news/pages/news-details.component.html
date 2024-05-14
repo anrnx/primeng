@@ -6,6 +6,7 @@
   </div>
   <p-editor [(ngModel)]="newsDetails.description" [style]="{ height: '200px' }"></p-editor>
   <button pButton type="button" [style]="{'background-color':'#FC7F03'}" icon="pi pi-save" label="Enregistrer" (click)="saveNewsDetails()"></button>
-  <p-button label="Supprimer" icon="pi pi-trash" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03' }" (click)="deleteNews()"></p-button>
+  <p-confirmDialog />
+  <p-button label="Supprimer" icon="pi pi-trash" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03' }" (click)="confirm1($event)"></p-button>
 </ng-container>
 </p-card>
