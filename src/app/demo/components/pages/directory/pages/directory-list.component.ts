@@ -16,10 +16,16 @@ export class DirectoryListComponent implements OnInit {
     totalRecords: number = 10;
     loading= false;
     matchModeOptions: { label: string; value: FilterMatchMode; }[];
+    items: ({ label: string; icon: string; routerLink: string[]; } | { label: string; icon: string; routerLink?: undefined; })[];
     
     constructor(private directoryService: DirectoryService) { }
 
     ngOnInit() {
+        this.items = [
+            { label: 'Dashboard', icon: 'pi pi-home', routerLink: ['/']},
+            { label: 'Directory', icon: 'pi pi-users', routerLink: ['/pages/directory']},
+            { label: 'News', icon: 'pi pi-book', routerLink: ['/pages/news']},
+        ];
         this.loading = true;
         this.currentPage = 1;
         this.directoryService.dataSourceDirectoryList(this.currentPage, this.rowsPerPage, null).subscribe((data: any) => {

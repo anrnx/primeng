@@ -49,8 +49,13 @@ export class AppMenuComponent implements OnInit {
                         items: [
                             {
                                 label: 'List',
-                                icon: 'pi pi-fw pi-list',
                                 routerLink: ['/pages/directory']
+                            },
+                            {
+                                label: 'Permanences',
+                            },
+                            {
+                                label: 'Tags',
                             }
                         ]
 

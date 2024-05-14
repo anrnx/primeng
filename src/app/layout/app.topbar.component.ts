@@ -16,5 +16,11 @@ export class AppTopBarComponent {
 
     @ViewChild('topbarmenu') menu!: ElementRef;
 
+    visible: boolean = false;
+
     constructor(public layoutService: LayoutService) { }
+
+    showDialog() {
+        this.visible = true;
+    }
 }

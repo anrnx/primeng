@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
-import { from } from 'rxjs';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { Directory } from 'src/app/demo/api/directory';
 import { DirectoryService } from 'src/app/demo/service/directory.service';
 
@@ -26,6 +25,8 @@ export class DirectoryDetailsComponent implements OnInit {
         Sunday: []
     }
 
+    
+
     suggestionTags: any[] = [];
 
 
@@ -33,7 +34,7 @@ export class DirectoryDetailsComponent implements OnInit {
     uuid: string;
     directoryFormGroup: FormGroup;
 
-    constructor(private directoryService: DirectoryService, private route: ActivatedRoute, public messageService: MessageService, private router: Router ) { }
+    constructor(private directoryService: DirectoryService, private route: ActivatedRoute, public messageService: MessageService, private confirmationService: ConfirmationService, private router: Router ) { }
 
     ngOnInit() {
         this.uuid = this.route.snapshot.params['uuid'];
@@ -75,6 +76,26 @@ export class DirectoryDetailsComponent implements OnInit {
     // this.directoryAdd.pictureUrl
     // this.directoryAdd.i18n
     // this.directoryAdd.avatarUrl
+    }
+
+
+    confirm1(event: Event) {
+        this.confirmationService.confirm({
+            target: event.target as EventTarget,
+            message: 'Are you sure that you want to proceed?',
+            header: 'Confirmation',
+            icon: 'pi pi-exclamation-triangle',
+            acceptIcon:"none",
+            rejectIcon:"none",
+            rejectButtonStyleClass:"p-button-text",
+            accept: () => {
+                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted' });
+                this.deleteContact();
+            },
+            reject: () => {
+                this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+            }
+        });
     }
     
     addEmail() {

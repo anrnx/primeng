@@ -15,12 +15,14 @@ import { InputTextModule } from 'primeng/inputtext';
 import { EditorModule } from 'primeng/editor';
 import { DirectoryAddComponent } from './pages/directory-add.component';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CalendarModule } from 'primeng/calendar';
 import { MessageModule } from 'primeng/message';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
     imports: [
@@ -40,11 +42,14 @@ import { MessageModule } from 'primeng/message';
         AutoCompleteModule,
         CalendarModule,
         ReactiveFormsModule,
-        MessageModule
-    ],
-    
+        MessageModule,
+        ToastModule,    
+        ConfirmDialogModule,
+        TabMenuModule
+    ],    
     providers: [
        DirectoryService,
+       ConfirmationService
     ],
 
     declarations: [DirectoryAddComponent, DirectoryListComponent, DirectoryDetailsComponent]

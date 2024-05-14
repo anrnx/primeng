@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { News } from 'src/app/demo/api/news';
-import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { Directory } from 'src/app/demo/api/directory';
 import { DirectoryService } from 'src/app/demo/service/directory.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { firstValueFrom } from 'rxjs';
+
 
 @Component({
     templateUrl: './directory-add.component.html',
@@ -30,7 +29,7 @@ export class DirectoryAddComponent implements OnInit {
 
     suggestionTags: any[] = [];
 
-    constructor(private fb:FormBuilder, private directoryService: DirectoryService, private router: Router, public messageService: MessageService) {
+    constructor(private fb:FormBuilder, private directoryService: DirectoryService, private router: Router, public messageService: MessageService, private confirmationService: ConfirmationService) {
 
     }
 
@@ -54,6 +53,8 @@ export class DirectoryAddComponent implements OnInit {
             latitude: new FormControl(null),
             longitude: new FormControl(null),
     });
+
+    
 
     // this.directoryAdd.tags
     // this.directoryAdd.phonenumbers

@@ -1,6 +1,6 @@
 <form [formGroup]="directoryFormGroup" *ngIf="directoryFormGroup">
   <p-card>
-    <div class="field grid">
+        <div class="field grid">
       <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
     </div> 
     <label class="col-15 mb-2 md:col-2 md:mb-0"></label>

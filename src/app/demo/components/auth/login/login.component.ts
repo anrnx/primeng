@@ -12,6 +12,8 @@ import { JwtUtil } from 'src/app/utilities/JwtUtil';
 export class LoginComponent {
   loginFormGroup:FormGroup;
 
+  loading = false;
+
     constructor(private fb:FormBuilder, 
                 public layoutService: LayoutService,
                  private authService: AuthService, 
@@ -24,6 +26,7 @@ export class LoginComponent {
     }
 
   login() {
+    this.loading = true;
     const val = this.loginFormGroup.value;
 
     if (val.email && val.password) {
@@ -34,6 +37,10 @@ export class LoginComponent {
                     JwtUtil.storeToken(result.token);
                     console.log(token);
                     this.router.navigateByUrl('/');
+                    this.loading = false;
+                },
+                error => {
+                    this.loading = false;
                 }
             )
     }

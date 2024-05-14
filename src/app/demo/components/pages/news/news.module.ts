@@ -14,9 +14,8 @@ import { NewsDetailsComponent } from './pages/news-details.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { EditorModule } from 'primeng/editor';
 import { NewsAddComponent } from './pages/news-add.component';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
     imports: [
@@ -31,7 +30,8 @@ import { CardModule } from 'primeng/card';
         NewsRoutingModule,
         InputTextModule,
         EditorModule,
-        CardModule
+        CardModule,
+        TabMenuModule
     ],
     
     providers: [

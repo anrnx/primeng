@@ -9,7 +9,10 @@ import { NewsService } from '../../service/news.service';
 import { News } from '../../api/news';
 import { Choice } from '../../api/choice';
 import { StatistiquesService } from '../../service/statistiques.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
+declare var IconPicker: any;
 
 
 @Component({
@@ -17,6 +20,8 @@ import { StatistiquesService } from '../../service/statistiques.service';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 [x: string]: any;
+
+    value: number = 50;
 
     rangeDates: Date[] | undefined;
 
@@ -37,21 +42,34 @@ export class DashboardComponent implements OnInit, OnDestroy {
     members: SuperHero[];
     squad: Squad;
 
+    showEmoji: boolean = false;
+
     newsList: News[] = [];
 
     dateFrom = "2024-04-03";
     dateTo = "2024-05-03";
 
+    showSpinner: boolean = false;
+    
     constructor(private statistiquesService: StatistiquesService, private productService: ProductService, public layoutService: LayoutService, public newsService: NewsService) {
         
         
     }
+
+    stateOptions: any[] = [
+        { label: 'Off', value: 'off' },
+        { label: 'On', value: 'on' }
+    ];
 
     getStatsistics() {
         this.statistiquesService.getStats(this.dateFrom, this.dateTo, this.selectedChoice).subscribe(data => {
             console.log(data);
             this.initChart(data)
         });
+    }
+
+    toggleEmoji() {
+        this.showEmoji = !this.showEmoji;
     }
 
     addEmoji(event: any) {
@@ -69,7 +87,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.getStatChoice();      
+        this.getStatChoice();
+        this.items = [
+            { label: 'Dashboard', icon: 'pi pi-home', routerLink: ['/']},
+            { label: 'Directory', icon: 'pi pi-users', routerLink: ['/pages/directory']},
+            { label: 'News', icon: 'pi pi-book', routerLink: ['/pages/news']},
+        ];
     }
 
     couleurs: string[] = [
@@ -142,10 +165,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 }
             }
         };
+
+        this.showSpinner = false;
     }
 
     onDateChange() {
         if (this.rangeDates.length === 2) {
+            this.showSpinner = true;
             this.dateFrom = this.format(this.rangeDates[0], 'yyyy-MM-dd');
             this.dateTo = this.format(this.rangeDates[1], 'yyyy-MM-dd');
             this.getStatsistics();

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'primeng/chart';
 import { MenuModule } from 'primeng/menu';
@@ -15,7 +15,10 @@ import { StatistiquesService } from '../../service/statistiques.service';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { PickerComponent } from '@ctrl/ngx-emoji-mart';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SliderModule } from 'primeng/slider';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 @NgModule({
     imports: [
@@ -31,7 +34,12 @@ import { PickerComponent } from '@ctrl/ngx-emoji-mart';
         ImageModule,
         CalendarModule,
         DropdownModule,
-        PickerComponent
+        PickerComponent,
+        FontAwesomeModule,
+        SliderModule,
+        ReactiveFormsModule,
+        ProgressSpinnerModule,
+        TabMenuModule
     ],
     
     providers: [
@@ -42,3 +50,4 @@ import { PickerComponent } from '@ctrl/ngx-emoji-mart';
     declarations: [DashboardComponent]
 })
 export class DashboardModule { }
+

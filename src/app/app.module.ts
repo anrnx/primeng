@@ -25,13 +25,36 @@ import { MessageService } from 'primeng/api';
 import { CardModule } from 'primeng/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { DialogModule } from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 
 
 
 @NgModule({
-    declarations: [AppComponent, NotfoundComponent,  UnauthorisedComponent, ForbiddenComponent],
-    imports: [AppRoutingModule, BrowserModule, ToastModule, BrowserAnimationsModule, AppLayoutModule, ReactiveFormsModule, FormsModule, EditorModule, CardModule],
+    declarations: [
+        AppComponent, 
+        NotfoundComponent,  
+        UnauthorisedComponent, 
+        ForbiddenComponent
+    ],
+    imports: [
+        AppRoutingModule, 
+        BrowserModule, 
+        ToastModule, 
+        ProgressSpinnerModule,
+        BrowserAnimationsModule,
+        AppLayoutModule, 
+        ReactiveFormsModule, 
+        FormsModule, 
+        EditorModule, 
+        CardModule,
+        ConfirmPopupModule,
+        DialogModule,
+        ButtonModule
+    ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
