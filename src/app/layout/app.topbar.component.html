@@ -12,8 +12,13 @@
             >
             <p-iconField iconPosition="left">
                 <p-inputIcon styleClass="pi pi-search"/>
-                <input [style]="{'width':'750px', 'height':'50px'}" type="text" placeholder="Search">
+                <input [style]="{'width':'750px', 'height':'50px','margin-left':'.5em'}" type="text" placeholder="Search">
             </p-iconField>
+
+            <p-footer>
+                <button type="button" pButton label="Search" (click)="visible = false"></button>
+                <button type="button" pButton label="Cancel" (click)="visible = false"></button>
+            </p-footer>
           
             
         </p-dialog> 

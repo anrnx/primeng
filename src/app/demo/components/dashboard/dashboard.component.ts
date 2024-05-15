@@ -9,8 +9,6 @@ import { NewsService } from '../../service/news.service';
 import { News } from '../../api/news';
 import { Choice } from '../../api/choice';
 import { StatistiquesService } from '../../service/statistiques.service';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 declare var IconPicker: any;
 
@@ -29,8 +27,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     selectedChoice: Choice | undefined;
 
-    items!: MenuItem[];
-
     products!: Product[];
 
     chartData: any;
@@ -48,6 +44,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     dateFrom = "2024-04-03";
     dateTo = "2024-05-03";
+
+    items: MenuItem[] | undefined;
 
     showSpinner: boolean = false;
     

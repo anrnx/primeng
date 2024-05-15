@@ -23,4 +23,8 @@ export class AppTopBarComponent {
     showDialog() {
         this.visible = true;
     }
+
+    search(event: any) {
+        console.log(event.query);
+    }
 }
