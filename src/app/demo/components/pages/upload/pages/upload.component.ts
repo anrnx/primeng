@@ -8,6 +8,8 @@ import { NewsService } from 'src/app/demo/service/news.service';
 })
 export class UploadComponent implements OnInit {
 
+    logoUrl: any;
+    uploadLogoQuery: any;
     ngOnInit(): void {
     }
 

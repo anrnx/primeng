@@ -1,16 +1,7 @@
     <div class="grid">
         <div class="col-12 xl:col-6">
             <div class="card">
-                
-                <div style="padding:10px;">
-                    <p-tabMenu [model]="items" />
-                </div>
-       
-                <div class="card flex justify-content-center">
-                    <div style="width:150px">
-                        <p-slider [(ngModel)]="value" class="w-full" />
-                    </div>
-                </div>
+                <h1>Dashboard</h1>    
                 <p-dropdown [style]="{'margin-right':'.5em'}" [options]="choice" [(ngModel)]="selectedChoice" optionLabel="title" placeholder="Select" /> 
                 <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [touchUI]="true" />
 
@@ -20,12 +11,69 @@
 
                 <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
                 <p-chart type="bar" [data]="chartData" [options]="chartOptions"></p-chart>
-                <p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg" alt="Image" width="250" [preview]="true"></p-image>
-
-
-                <p-button [style]="{'margin-left': '.5em'}" class="pi pi-face-smile" (click)="toggleEmoji()"></p-button>
-                <emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart>               
-            </div>
+               
+              
             </div>
 </div>
 
+<div class="col-12 md:col-4 mb-5">
+    <div class="flex flex-column align-items-center">
+        <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+            <i class="pi pi-users text-4xl text-primary-700"></i>
+        </span>
+        <div class="text-2xl mb-3 font-medium">Annuaire</div>
+        <ul class="list-none m-0 p-0 text-center">
+            <li class="line-height-3 mb-1">
+                <a routerLink="/pages/directory" class="text-color-secondary hover:text-primary cursor-pointer">Afficher la liste des contacts</a>
+            </li>
+            <li class="line-height-3 mb-3">
+                <a routerLink="/pages/directory/add"  class="text-color-secondary hover:text-primary cursor-pointer">Ajouter un contact</a>
+            </li>
+            <li>
+                <a routerLink="/pages/directory" class="text-primary hover:underline cursor-pointer font-medium">Voir tout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-12 md:col-4 mb-5">
+    <div class="flex flex-column align-items-center">
+        <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+            <i class="pi pi-book text-4xl text-primary-700"></i>
+        </span>
+        <div class="text-2xl mb-3 font-medium">News</div>
+        <ul class="list-none m-0 p-0 text-center">
+            <li class="line-height-3 mb-1">
+                <a routerLink="/pages/news" class="text-color-secondary hover:text-primary cursor-pointer">Afficher la liste des news</a>
+            </li>
+            <li class="line-height-3 mb-1">
+                <a routerLink="/pages/news/add" class="text-color-secondary hover:text-primary cursor-pointer">Ajouter une news</a>
+            </li>
+            <li>
+                <a routerLink="/pages/news" class="text-primary hover:underline cursor-pointer font-medium">Voir tout</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="col-12 md:col-4 mb-5">
+    <div class="flex flex-column align-items-center">
+        <span class="inline-flex align-items-center justify-content-center border-circle w-5rem h-5rem bg-primary-100 mb-5">
+            <i class="pi pi-user text-4xl text-primary-700"></i>
+        </span>
+        <div class="text-2xl mb-3 font-medium">Profil</div>
+        <!-- <ul class="list-none m-0 p-0 text-center">
+            <li class="line-height-3 mb-1">
+                <a class="text-color-secondary hover:text-primary cursor-pointer" >Lorem ipsum dolor</a>
+            </li>
+            <li class="line-height-3 mb-1"><a class="text-color-secondary hover:text-primary cursor-pointer">Consectetur adipiscing elit</a>
+            </li>
+            <li class="line-height-3 mb-3">
+                <a class="text-color-secondary hover:text-primary cursor-pointer">Sed do eiusmod tempor</a>
+            </li>
+            <li>
+                <a class="text-primary hover:underline cursor-pointer font-medium">View all</a>
+            </li>
+        </ul> -->
+    </div>
+</div>

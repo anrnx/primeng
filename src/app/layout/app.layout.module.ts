@@ -21,6 +21,13 @@ import { Dialog, DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
+import { MenuModule } from 'primeng/menu';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ConfirmationService } from 'primeng/api';
+import { NgxFlowModule } from '@flowjs/ngx-flow';
+import { FileUpload } from 'primeng/fileupload';
+import { FileUploadSingleComponent } from '../demo/components/pages/upload/file-upload-single/file-upload-single.component';
 
 @NgModule({
     declarations: [
@@ -47,7 +54,15 @@ import { InputIconModule } from 'primeng/inputicon';
         DialogModule,
         ButtonModule,
         IconFieldModule,
-        InputIconModule
+        InputIconModule,
+        MenuModule,
+        SplitButtonModule,
+        ConfirmPopupModule,
+        NgxFlowModule
+    ],
+    providers: [
+        ConfirmationService,
+        
     ],
     exports: [AppLayoutComponent]
 })

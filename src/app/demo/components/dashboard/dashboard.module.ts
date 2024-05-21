@@ -15,10 +15,11 @@ import { StatistiquesService } from '../../service/statistiques.service';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { PickerComponent } from '@ctrl/ngx-emoji-mart';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SliderModule } from 'primeng/slider';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
     imports: [
@@ -35,11 +36,12 @@ import { TabMenuModule } from 'primeng/tabmenu';
         CalendarModule,
         DropdownModule,
         PickerComponent,
-        FontAwesomeModule,
         SliderModule,
         ReactiveFormsModule,
         ProgressSpinnerModule,
-        TabMenuModule
+        TabMenuModule,
+        SplitButtonModule,
+        CardModule
     ],
     
     providers: [

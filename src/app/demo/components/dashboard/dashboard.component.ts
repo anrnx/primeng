@@ -19,7 +19,6 @@ declare var IconPicker: any;
 export class DashboardComponent implements OnInit, OnDestroy {
 [x: string]: any;
 
-    value: number = 50;
 
     rangeDates: Date[] | undefined;
 
@@ -38,7 +37,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     members: SuperHero[];
     squad: Squad;
 
-    showEmoji: boolean = false;
 
     newsList: News[] = [];
 
@@ -46,6 +44,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     dateTo = "2024-05-03";
 
     items: MenuItem[] | undefined;
+    activeItem: MenuItem | undefined;
+
 
     showSpinner: boolean = false;
     
@@ -53,7 +53,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
         
         
     }
-
     stateOptions: any[] = [
         { label: 'Off', value: 'off' },
         { label: 'On', value: 'on' }
@@ -66,13 +65,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         });
     }
 
-    toggleEmoji() {
-        this.showEmoji = !this.showEmoji;
-    }
-
-    addEmoji(event: any) {
-        console.log(event.emoji);
-    }
+    
     
     getStatChoice() {
        
@@ -91,6 +84,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
             { label: 'Directory', icon: 'pi pi-users', routerLink: ['/pages/directory']},
             { label: 'News', icon: 'pi pi-book', routerLink: ['/pages/news']},
         ];
+        this.activeItem = this.items[0];
+
     }
 
     couleurs: string[] = [

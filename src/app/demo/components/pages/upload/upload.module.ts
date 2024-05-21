@@ -11,6 +11,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { EditorModule } from 'primeng/editor';
 import { CardModule } from 'primeng/card';
 import { MessageService } from 'primeng/api';
+import { FileUpload } from 'primeng/fileupload';
+import { FileUploadSingleComponent } from 'src/app/demo/components/pages/upload/file-upload-single/file-upload-single.component';
+import { NgxFlowModule } from '@flowjs/ngx-flow';
 
 @NgModule({
     imports: [
@@ -24,13 +27,13 @@ import { MessageService } from 'primeng/api';
         ButtonModule,
         InputTextModule,
         EditorModule,
-        CardModule
+        CardModule,
+        NgxFlowModule,
+        FileUploadSingleComponent
     ],
-    
     providers: [
        MessageService
     ],
-
-    declarations: []
+    declarations: [FileUploadSingleComponent]
 })
 export class UploadModule { }

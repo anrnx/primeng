@@ -33,9 +33,12 @@
                             "src/styles.scss",
                             "node_modules/quill/dist/quill.core.css",
                             "node_modules/quill/dist/quill.snow.css",
-                            "node_modules/primeflex/primeflex.css"
+                            "node_modules/primeflex/primeflex.css",
+                            "node_modules/jsoneditor/dist/jsoneditor.min.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/jsoneditor/dist/jsoneditor.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -100,9 +103,12 @@
                             "src/styles.scss",
                             "node_modules/quill/dist/quill.core.css",
                             "node_modules/quill/dist/quill.snow.css",
-                            "node_modules/primeflex/primeflex.css"
+                            "node_modules/primeflex/primeflex.css",
+                            "node_modules/jsoneditor/dist/jsoneditor.min.css"
                         ],
-                        "scripts": []
+                        "scripts": [
+                            "node_modules/jsoneditor/dist/jsoneditor.min.js"
+                        ]
                     }
                 }
             }

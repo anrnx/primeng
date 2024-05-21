@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { User } from "../api/user";
 import { Role } from "../api/roles";
+import { JwtUtil } from "src/app/utilities/JwtUtil";
 
 
 @Injectable({
@@ -15,6 +16,10 @@ export class AuthService {
         return this.http.post<User>('https://api.cityapp.lu/auth/api/configurations/cityapp/tokens',
         { username: email, password: password });
     }
+
+    // logout(token: string) {
+    //    removeToken();
+    // }
 
     getUserRole(): Role {
         /**

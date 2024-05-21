@@ -38,13 +38,7 @@ export class AppMenuComponent implements OnInit {
                     },
 
                     {
-                        label: 'Upload',
-                        icon: 'pi pi-fw pi-upload',
-                        routerLink: ['/pages/upload']
-                    },
-
-                    {
-                        label: 'Directory',
+                        label: 'Annuaire',
                         icon: 'pi pi-fw pi-users',
                         items: [
                             {
@@ -60,41 +54,17 @@ export class AppMenuComponent implements OnInit {
                         ]
 
                     },
-                   
-                    { 
-                        label: 'Form Layout', 
-                        icon: 'pi pi-fw pi-id-card', 
-                        routerLink: ['/uikit/formlayout'] 
+
+                    {
+                        label: 'Upload',
+                        icon: 'pi pi-fw pi-upload',
+                        routerLink: ['/pages/upload']
                     },
-                    { 
-                        label: 'Chart',
-                        icon: 'pi pi-fw pi-chart-bar', 
-                        routerLink: ['/uikit/charts'] 
-                    }
+                    {
+                       label: 'Ui', icon: 'pi pi-fw pi-home', routerLink: ['/pages/ui']
+                    },
                 ]
-            },
-            {
-                label: 'Menu',
-                items: [
-                    
-                    { label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input'] },
-                    { label: 'Invalid State', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/uikit/invalidstate'] },
-                    { label: 'Button', icon: 'pi pi-fw pi-box', routerLink: ['/uikit/button'] },
-                    { label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table'] },
-                    { label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list'] },
-                    { label: 'Tree', icon: 'pi pi-fw pi-share-alt', routerLink: ['/uikit/tree'] },
-                    { label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file'] },
-                    { label: 'Misc', icon: 'pi pi-fw pi-circle', routerLink: ['/uikit/misc'] }
-                ]
-            },
-            {
-                label: 'Prime Blocks',
-                items: [
-                    { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks'], badge: 'NEW' },
-                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank' },
-                ]
-            },
-                
+            },  
         ];
     }
 }

@@ -2,35 +2,6 @@
     <a class="layout-topbar-logo" routerLink="">
         <span>Test</span>
     </a>
-   
-    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">        
-        <button class="p-link layout-topbar-button" (click)="showDialog()">
-            <i class="pi pi-search"></i></button>
-        <p-dialog 
-            [modal]="true"
-            [(visible)]="visible" 
-            >
-            <p-iconField iconPosition="left">
-                <p-inputIcon styleClass="pi pi-search"/>
-                <input [style]="{'width':'750px', 'height':'50px','margin-left':'.5em'}" type="text" placeholder="Search">
-            </p-iconField>
-
-            <p-footer>
-                <button type="button" pButton label="Search" (click)="visible = false"></button>
-                <button type="button" pButton label="Cancel" (click)="visible = false"></button>
-            </p-footer>
-          
-            
-        </p-dialog> 
-        <button class="p-link layout-topbar-button">
-            <i class="pi pi-calendar"></i>
-            <span>Calendar</span>
-        </button>
-        <button class="p-link layout-topbar-button">
-            <i class="pi pi-user"></i>
-            <span>Profile</span>
-        </button>
-    </div>
 
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
         <i class="pi pi-bars"></i>
@@ -39,4 +10,19 @@
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
         <i class="pi pi-ellipsis-v"></i>
     </button>
+    
+    <div #topbarmenu class="layout-topbar-menu" [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">        
+        <button class="p-link layout-topbar-button" (click)="confirm($event)">
+            <i class="pi pi-user"></i>
+            <span>Profile</span>
+          </button>
+          <p-confirmPopup>
+            <ng-template pTemplate="headless" let-message let-test>
+                <div class="border-round p-3">
+                    <p>{{ username }}</p>
+                    <p-button (click)="logout()">Déconnexion</p-button>
+                </div>
+            </ng-template>
+        </p-confirmPopup>
+    </div>
 </div>

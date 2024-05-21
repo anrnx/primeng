@@ -29,6 +29,10 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIcon, InputIconModule } from 'primeng/inputicon';
+import { FlowInjectionToken, NgxFlowModule } from '@flowjs/ngx-flow';
+import Flow from '@flowjs/flow.js';
 
 
 
@@ -53,9 +57,16 @@ import { ButtonModule } from 'primeng/button';
         CardModule,
         ConfirmPopupModule,
         DialogModule,
-        ButtonModule
+        ButtonModule,
+        IconFieldModule,
+        InputIconModule,
+        NgxFlowModule
     ],
     providers: [
+        {
+            provide: FlowInjectionToken,
+            useValue: Flow
+        },
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService, CustomerService, EventService, IconService, NodeService,
         PhotoService, ProductService,MessageService,
