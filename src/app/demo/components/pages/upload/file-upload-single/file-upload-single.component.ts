@@ -1,8 +1,11 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FlowDirective, Transfer } from '@flowjs/ngx-flow';
-
+import { MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { UploadService } from 'src/app/demo/service/upload.service';
+import { JwtUtil } from 'src/app/utilities/JwtUtil';
+
+
 
 @Component({
   selector: 'file-upload-single',
@@ -26,11 +29,14 @@ export class FileUploadSingleComponent implements OnInit  {
   uploadUrl: any;
 
 
-  constructor(private cd: ChangeDetectorRef, private uploadService: UploadService) {
+  constructor(private cd: ChangeDetectorRef, private uploadService: UploadService, private messageService: MessageService) {
   }
 
   ngOnInit(): void {
+    // JWTUtility get token
     // this.authService.getToken().subscribe(token => {this.token = token;});
+    this.token = JwtUtil.getToken();
+    
     this.uploadUrl = this.uploadService.getEndpoint();
   }
 
@@ -62,10 +68,12 @@ export class FileUploadSingleComponent implements OnInit  {
         _this.updateValue.emit(_this.file);
       }
       flow.cancel();
+      _this.messageService.add({severity:'success', summary: 'Success', detail: 'Validation success'});
       // _this.toastrService.success(successUploadMsg, "TRANSFERT");
       _this.cd.detectChanges();
     });
     flow.flowJs.on('fileError', function(file, message){
+      _this.messageService.add({severity:'error', summary: 'Error', detail: 'Validation failed'});
       // _this.toastrService.danger(errorUploadMsg, "TRANSFERT");
       flow.cancel();
     });
