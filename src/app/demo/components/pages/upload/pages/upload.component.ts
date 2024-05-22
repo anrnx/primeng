@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { News } from 'src/app/demo/api/news';
-import { NewsService } from 'src/app/demo/service/news.service';
 
 @Component({
     templateUrl: './upload.component.html',
@@ -8,9 +6,14 @@ import { NewsService } from 'src/app/demo/service/news.service';
 })
 export class UploadComponent implements OnInit {
 
+    constructor() {
+
+    }
+
     logoUrl: any;
     uploadLogoQuery: any;
     ngOnInit(): void {
+        console.log("TEST");
     }
 
 }

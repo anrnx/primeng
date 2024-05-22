@@ -1,0 +1,29 @@
+test
+<div class="form-group row logo">
+  <div class="col-sm-12" style="margin-bottom: 40px" [hidden]="!file">
+    <img *ngIf="file && !small" [src]="file" style="max-height: 150px; max-width: 150px;">
+    <button nbButton status="primary" (click)="delete()">{{ small ? 'X' : 'Supprimer' }}</button>
+  </div>
+  <div class="col-sm-12" [hidden]="file != null">
+    <ng-container #flowDirective="flow" [flowConfig]="{target: uploadUrl, maxChunkRetries: 3, permanentErrors:[415,501], generateUniqueIdentifier: generateUniqueIdentifierCustom, headers: {'Authorization': 'Bearer ' + token, 'X-Api-Version': '3'}, singleFile: true}"></ng-container>
+    <label for="file-upload">
+      <button nbButton status="primary" (click)="chooseFileBtn.click()"><i class="fas fa-cloud-upload-alt"></i><ng-container *ngIf="!small">&nbsp;Ajouter</ng-container></button>
+    </label>
+    <input id="file-upload" class="flowbutton" type="file"
+      #chooseFileBtn
+      flowButton
+      [flow]="flowDirective.flowJs"
+      [flowAttributes]="flowAttributes">
+    <div class="transfers">
+      <div class="transfer"
+            [ngClass]="{'transfer--error': transfer.error, 'transfer--success': transfer.success}"
+            *ngFor="let transfer of (flowDirective.transfers$ | async).transfers;">
+            <div class="name">name: {{transfer.name}}</div>
+            <div *ngIf="transfer.complete == false && transfer.error == false">
+              <nb-progress-bar [value]="transfer.progress * 100" status="success">{{transfer.progress | percent}}</nb-progress-bar>
+            </div>
+            <div *ngIf="transfer.error != false">error: {{transfer.error}}</div>
+      </div>
+    </div>
+  </div>
+</div>

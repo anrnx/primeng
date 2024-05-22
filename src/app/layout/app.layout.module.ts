@@ -27,7 +27,6 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmationService } from 'primeng/api';
 import { NgxFlowModule } from '@flowjs/ngx-flow';
 import { FileUpload } from 'primeng/fileupload';
-import { FileUploadSingleComponent } from '../demo/components/pages/upload/file-upload-single/file-upload-single.component';
 
 @NgModule({
     declarations: [
@@ -57,12 +56,11 @@ import { FileUploadSingleComponent } from '../demo/components/pages/upload/file-
         InputIconModule,
         MenuModule,
         SplitButtonModule,
-        ConfirmPopupModule,
-        NgxFlowModule
+        ConfirmPopupModule
     ],
     providers: [
         ConfirmationService,
-        
+
     ],
     exports: [AppLayoutComponent]
 })

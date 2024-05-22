@@ -5,8 +5,9 @@ import { UploadComponent } from './pages/upload.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: '', component: UploadComponent },     
+        { path: '', component: UploadComponent },
     ])],
     exports: [RouterModule]
 })
 export class UploadRoutingModule { }
+

@@ -11,9 +11,11 @@ import { InputTextModule } from 'primeng/inputtext';
 import { EditorModule } from 'primeng/editor';
 import { CardModule } from 'primeng/card';
 import { MessageService } from 'primeng/api';
-import { FileUpload } from 'primeng/fileupload';
-import { FileUploadSingleComponent } from 'src/app/demo/components/pages/upload/file-upload-single/file-upload-single.component';
 import { NgxFlowModule } from '@flowjs/ngx-flow';
+import { FileUploadSingleComponent } from './file-upload-single/file-upload-single.component';
+import { UploadComponent } from './pages/upload.component';
+import { UploadRoutingModule } from './upload-routing.module';
+import { UploadService } from 'src/app/demo/service/upload.service';
 
 @NgModule({
     imports: [
@@ -29,11 +31,15 @@ import { NgxFlowModule } from '@flowjs/ngx-flow';
         EditorModule,
         CardModule,
         NgxFlowModule,
-        FileUploadSingleComponent
+        UploadRoutingModule
     ],
     providers: [
-       MessageService
+        MessageService,
+        UploadService
     ],
-    declarations: [FileUploadSingleComponent]
+    declarations: [
+        UploadComponent,
+        FileUploadSingleComponent
+    ]
 })
 export class UploadModule { }

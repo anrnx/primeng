@@ -1,0 +1,19 @@
+a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+    color: #5dcfe3;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:not([href]):not([tabindex]) {
+    color: #5dcfe3;
+    text-decoration: underline;
+}
+
+.transfer {
+    display: inline-block;
+    padding: 10px;
+}
+
+input#file-upload[type="file"] {
+    display: none;
+}
