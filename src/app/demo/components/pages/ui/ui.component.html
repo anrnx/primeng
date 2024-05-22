@@ -1,0 +1,41 @@
+<!-- SEARCH BUTTON  -->
+
+<button class="p-link layout-topbar-button" (click)="showDialog()">
+    <i class="pi pi-search"></i></button>
+<p-dialog 
+    [modal]="true"
+    [(visible)]="visible" 
+    >
+    <p-iconField iconPosition="left">
+        <p-inputIcon styleClass="pi pi-search"/>
+        <input pInputText [style]="{'width':'750px', 'height':'50px','margin-left':'.5em'}" type="text" placeholder="Search">
+    </p-iconField>
+
+    <p-footer>
+        <button type="button" pButton label="Search" (click)="search($event)"></button>
+        <button type="button" pButton label="Cancel" (click)="visible = false"></button>
+    </p-footer>
+  
+    
+</p-dialog> 
+
+<!-- SLIDER -->
+
+<div class="card flex justify-content-center">
+    <div style="width:150px">
+        <p-slider [(ngModel)]="value" class="w-full" />
+    </div>
+</div>
+
+<!-- IMAGE WITH PREVIEW -->
+
+<p-image src="https://primefaces.org/cdn/primeng/images/galleria/galleria1.jpg" alt="Image" width="250" [preview]="true"></p-image>
+
+
+<!-- EMOJI -->
+
+<p-button [style]="{'margin-left': '.5em'}" class="pi pi-face-smile" (click)="toggleEmoji()"></p-button>
+<emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart> 
+
+<!-- JSON EDITOR -->
+<div id="jsoneditor" style="width: 400px; height: 400px;"></div>
