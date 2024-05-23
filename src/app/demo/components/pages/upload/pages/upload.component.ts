@@ -11,7 +11,11 @@ export class UploadComponent implements OnInit {
     }
 
     logoUrl: any;
-    uploadLogoQuery: any;
+    uploadLogoQuery: any = {
+        "api": "news",
+        "configuration": "developer",
+        "folder": "logo"
+      };
     ngOnInit(): void {
         console.log("TEST");
     }
