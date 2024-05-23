@@ -6,15 +6,15 @@
         <div class="col">
           <label for="file-upload">
             <p-toast/>
-            <p-button label="Ajouter" icon="pi pi-plus" [style]="{'background-color': '#FC7F03','margin-left': '.5em'}" status="primary" (click)="chooseFileBtn.click()"><i class="fas fa-cloud-upload-alt"></i><ng-container *ngIf="!small"></ng-container></p-button>
+            <p-button label="Ajouter" icon="pi pi-plus" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03','margin-left': '.5em'}" status="primary" (click)="chooseFileBtn.click()"><i class="fas fa-cloud-upload-alt"></i><ng-container *ngIf="!small"></ng-container></p-button>
           </label>
         </div>
     </div>
       <div class="col">    
         <div style="margin-bottom: 40px" [hidden]="!file">
           <img *ngIf="file && !small" [src]="file" style="max-height: 150px; max-width: 150px;">
-          <p-confirmPopup/>
-          <p-button label="Supprimer" icon="pi pi-trash" [style]="{'background-color': '#FC7F03','margin-left': '.5em'}"  status="primary" (click)="confirm2($event)" severity="danger"></p-button>
+          <p-confirmPopup key="delete"/>
+          <p-button label="Supprimer" icon="pi pi-trash" [style]="{'background-color': '#FC7F03','margin-left': '.5em'}"  status="primary" (click)="validate($event)" severity="danger"></p-button>
         </div>
        </div>
   <div class="col-sm-12" [hidden]="file != null">
@@ -30,8 +30,8 @@
             [ngClass]="{'transfer--error': transfer.error, 'transfer--success': transfer.success}"
             *ngFor="let transfer of (flowDirective.transfers$ | async).transfers;">
             <div class="name">name: {{transfer.name}}</div>
-            <div *ngIf="transfer.complete == false && transfer.error == false">
-              <nb-progress-bar [value]="transfer.progress * 100" status="success">{{transfer.progress | percent}}</nb-progress-bar>
+            <div *ngIf="transfer.complete == false && transfer.error == false">              
+              <p-progressBar [value]="(transfer.progress * 100).toFixed()" status="success"/>
             </div>
             <div *ngIf="transfer.error != false">error: {{transfer.error}}</div>
       </div>

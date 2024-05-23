@@ -98,8 +98,9 @@ export class FileUploadSingleComponent implements OnInit  {
     return flowFile.size + '-' + relativePath.replace(/[^0-9a-zA-Z_-]/img, '') + '-' + Date.now();
   };
 
-  confirm2(event: Event) {
+  validate(event: Event) {
     this.confirmationService.confirm({
+        key: 'delete',
         target: event.target as EventTarget,
         message: 'Are you sure?',
         icon: 'pi pi-info-circle',

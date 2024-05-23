@@ -2,11 +2,11 @@
 <ng-container *ngIf="newsDetails">
   <div class="flex flex-column gap-2">
     <label for="title">Titre</label>
-    <input pInputText id="title" [(ngModel)]="newsDetails.title" />    
+    <input pInputText id="title" [(ngModel)]="newsDetails.title" [style]="{'margin-bottom':'.7em'}"  />    
   </div>
   <p-editor [(ngModel)]="newsDetails.description" [style]="{ height: '200px' }"></p-editor>
-  <button pButton type="button" [style]="{'background-color':'#FC7F03'}" icon="pi pi-save" label="Enregistrer" (click)="saveNewsDetails()"></button>
+  <button pButton type="button" [style]="{'background-color':'#FC7F03','border-color':'#FC7F03'}" icon="pi pi-save" label="Enregistrer" (click)="saveNewsDetails()"></button>
   <p-confirmDialog />
-  <p-button label="Supprimer" icon="pi pi-trash" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03' }" (click)="confirm1($event)"></p-button>
+  <p-button label="Supprimer" icon="pi pi-trash" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em', 'margin-top': '.75em', 'background-color':'#FC7F03', 'border-color':'#FC7F03' }" (click)="confirm1($event)"></p-button>
 </ng-container>
 </p-card>

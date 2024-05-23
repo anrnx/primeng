@@ -18,6 +18,7 @@ import { UploadRoutingModule } from './upload-routing.module';
 import { UploadService } from 'src/app/demo/service/upload.service';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 @NgModule({
     imports: [
@@ -35,7 +36,8 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
         NgxFlowModule,
         UploadRoutingModule,
         ToastModule,
-        ConfirmPopupModule
+        ConfirmPopupModule,
+        ProgressBarModule
     ],
     providers: [
         MessageService,

@@ -6,7 +6,7 @@
                 <p-calendar [(ngModel)]="rangeDates" selectionMode="range" [readonlyInput]="true" [touchUI]="true" />
 
                 
-                <p-button [style]="{'background-color': '#FC7F03','margin-left': '.5em'}" label="Apply" class="mt-3" (click)="onDateChange()"></p-button>
+                <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03','margin-left': '.5em'}" label="Apply" class="mt-3" (click)="onDateChange()"></p-button>
                 <p-progressSpinner *ngIf="showSpinner" [style]="{'width':'35px'}"></p-progressSpinner>
 
                 <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>

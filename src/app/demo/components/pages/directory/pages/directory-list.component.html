@@ -5,7 +5,7 @@
             <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Annuaire</h1>
         </div>
         <div class="col">
-            <p-button [style]="{'background-color':'#FC7F03'}"   label="Ajouter un contact" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/directory/add'" class="ml-2"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Ajouter un contact" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/directory/add'" class="ml-2"></p-button>
         </div>
     </div>
     <p-table [lazy]="true" [loading]="loading" [value]="directoryList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
@@ -33,7 +33,7 @@
                 <td>{{directory.priority}}</td>
 
                 <td>
-                    <button pButton pRipple type="button" icon="pi pi-pencil" [style]="{'background-color':'#FC7F03'}"  [routerLink]="'/pages/directory/'+directory.uuid"></button>
+                    <button pButton pRipple type="button" icon="pi pi-pencil" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  [routerLink]="'/pages/directory/'+directory.uuid"></button>
                 </td>
                
             </tr>

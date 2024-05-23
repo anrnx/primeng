@@ -1,7 +1,7 @@
 <form [formGroup]="directoryFormGroup" *ngIf="directoryFormGroup">
   <p-card>
         <div class="field grid">
-      <p-button [style]="{'background-color': '#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
+      <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Enregistrer" type="button" pRipple icon="pi pi-save" (click)="save()" [disabled]="!directoryFormGroup.valid" class="ml-2"></p-button>
     </div> 
     <label class="col-15 mb-2 md:col-2 md:mb-0"></label>
     <div *ngIf="directoryAdd">     
@@ -64,12 +64,12 @@
           <div class="col-12 md:col-10">
             <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="email.label" />
             <input pInputText id="longitude" aria-describedby="longitude-help" [[(ngModel)]="email.email" />
-            <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
           </div>
         </div>
       </ng-container>
       <div class="field grid">
-        <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addEmail()" class="ml-2"></p-button>
+        <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addEmail()" class="ml-2"></p-button>
       </div> 
 
       <div class="field grid">
@@ -80,12 +80,12 @@
           <div class="col-12 md:col-10">
             <input pInputText id="label" aria-describedby="label-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="phonenumber.label" />
             <input pInputText id="phone" aria-describedby="longitude-help" [[(ngModel)]="phonenumber.phone" />
-            <p-button [style]="{'background-color':'#FC7F03'}" label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removePhoneNumber(i)" class="ml-2"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removePhoneNumber(i)" class="ml-2"></p-button>
           </div>
         </div>
       </ng-container>
       <div class="field grid">
-        <p-button [style]="{'background-color': '#FC7F03'}" label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addPhoneNumber()" class="ml-2"></p-button>
+        <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Ajouter" type="button" pRipple icon="pi pi-plus" (click)="addPhoneNumber()" class="ml-2"></p-button>
       </div> 
 
       <div class="field grid">
@@ -141,10 +141,10 @@
                     <p-calendar [style]="{'margin-right':'.5em'}" [[(ngModel)]="slot.start" [timeOnly]="true"></p-calendar>
                     <p-calendar [[(ngModel)]="slot.end" [timeOnly]="true" [style]="{'margin-right':'.5em'}"></p-calendar>
                     <p-inputSwitch [[(ngModel)]="slot.isAppointment"></p-inputSwitch>
-                    <p-button [style]="{'background-color':'#FC7F03'}" label="Delete" type="button" pRipple icon="pi pi-check" (click)="removeDay(k)" class="ml-2"></p-button>
+                    <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="Delete" type="button" pRipple icon="pi pi-check" (click)="removeDay(k)" class="ml-2"></p-button>
                   </div>
               </div>    
-              <p-button [style]="{'background-color': '#FC7F03'}" label="Add {{k}}" type="button" pRipple icon="pi pi-plus" (click)="addDay(k)" class="ml-2"></p-button>   
+              <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="Add {{k}}" type="button" pRipple icon="pi pi-plus" (click)="addDay(k)" class="ml-2"></p-button>   
         </div>
   </p-card>
 </form> 

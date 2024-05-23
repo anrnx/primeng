@@ -4,7 +4,8 @@
             <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">News</h1>
         </div>
         <div class="col">
-            <p-button label="Ajouter une news" [style]="{'background-color':'#FC7F03'}"  type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/news/add'" class="ml-2"></p-button>
+            <p-button label="Ajouter une news" 
+            [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/news/add'" class="ml-2"></p-button>
         </div>
     </div>
     <p-table [lazy]="true" [loading]="loading" [value]="newsList" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
@@ -31,7 +32,7 @@
                 <td>{{news.title}}</td>
                 <td>{{news.description}}</td>
                 <td>
-                    <button pButton pRipple type="button" icon="pi pi-search" [style]="{'background-color':'#FC7F03'}"  [routerLink]="'/pages/news/'+news.uuid"></button>
+                    <button pButton pRipple type="button" icon="pi pi-search" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" [routerLink]="'/pages/news/'+news.uuid"></button>
                 </td>
             </tr>
         </ng-template>

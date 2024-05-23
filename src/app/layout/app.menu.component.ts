@@ -25,6 +25,24 @@ export class AppMenuComponent implements OnInit {
                 label: 'Pages',
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
+
+                    {
+                        label: 'Notifications Push',
+                        icon: 'pi pi-fw pi-bell',
+                        items: [
+                            {
+                                label: 'List',
+                                routerLink: ['/pages/message']
+                            },
+                            {
+                                label: 'Inscriptions',
+                            },
+                            {
+                                label: 'Groupes de diffusion',
+                            }
+                        ]
+
+                    },
             
                     {
                         label: 'Login',
@@ -63,6 +81,7 @@ export class AppMenuComponent implements OnInit {
                     {
                        label: 'Ui', icon: 'pi pi-fw pi-home', routerLink: ['/pages/ui']
                     },
+                   
                 ]
             },  
         ];
