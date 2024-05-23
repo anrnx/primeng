@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewChild, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FlowDirective, Transfer } from '@flowjs/ngx-flow';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { UploadService } from 'src/app/demo/service/upload.service';
 import { JwtUtil } from 'src/app/utilities/JwtUtil';
@@ -29,7 +29,7 @@ export class FileUploadSingleComponent implements OnInit  {
   uploadUrl: any;
 
 
-  constructor(private cd: ChangeDetectorRef, private uploadService: UploadService, private messageService: MessageService) {
+  constructor(private cd: ChangeDetectorRef, private uploadService: UploadService, private messageService: MessageService, private confirmationService: ConfirmationService) {
   }
 
   ngOnInit(): void {
@@ -68,12 +68,12 @@ export class FileUploadSingleComponent implements OnInit  {
         _this.updateValue.emit(_this.file);
       }
       flow.cancel();
-      _this.messageService.add({severity:'success', summary: 'Success', detail: 'Validation success'});
+      _this.messageService.add({severity:'success', summary: 'Success', detail: 'Upload successful'});
       // _this.toastrService.success(successUploadMsg, "TRANSFERT");
       _this.cd.detectChanges();
     });
     flow.flowJs.on('fileError', function(file, message){
-      _this.messageService.add({severity:'error', summary: 'Error', detail: 'Validation failed'});
+      _this.messageService.add({severity:'error', summary: 'Error', detail: 'Upload error'});
       // _this.toastrService.danger(errorUploadMsg, "TRANSFERT");
       flow.cancel();
     });
@@ -97,4 +97,20 @@ export class FileUploadSingleComponent implements OnInit  {
     const relativePath = flowFile.relativePath || flowFile.webkitRelativePath || flowFile.fileName || flowFile.name;
     return flowFile.size + '-' + relativePath.replace(/[^0-9a-zA-Z_-]/img, '') + '-' + Date.now();
   };
+
+  confirm2(event: Event) {
+    this.confirmationService.confirm({
+        target: event.target as EventTarget,
+        message: 'Are you sure?',
+        icon: 'pi pi-info-circle',
+        acceptButtonStyleClass: 'p-button-danger p-button-sm',
+        accept: () => {
+            this.delete();
+            this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'File deleted', life: 3000 });
+        },
+        reject: () => {
+            this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have cancelled', life: 3000 });
+        }
+    });
+}
 }

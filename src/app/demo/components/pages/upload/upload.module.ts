@@ -16,6 +16,8 @@ import { FileUploadSingleComponent } from './file-upload-single/file-upload-sing
 import { UploadComponent } from './pages/upload.component';
 import { UploadRoutingModule } from './upload-routing.module';
 import { UploadService } from 'src/app/demo/service/upload.service';
+import { ToastModule } from 'primeng/toast';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @NgModule({
     imports: [
@@ -31,7 +33,9 @@ import { UploadService } from 'src/app/demo/service/upload.service';
         EditorModule,
         CardModule,
         NgxFlowModule,
-        UploadRoutingModule
+        UploadRoutingModule,
+        ToastModule,
+        ConfirmPopupModule
     ],
     providers: [
         MessageService,
