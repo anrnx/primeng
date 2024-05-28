@@ -31,8 +31,8 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-bell',
                         items: [
                             {
-                                label: 'List',
-                                routerLink: ['/pages/message']
+                                label: 'Messages',
+                                routerLink: ['/pages/messages']
                             },
                             {
                                 label: 'Inscriptions',
@@ -71,6 +71,12 @@ export class AppMenuComponent implements OnInit {
                             }
                         ]
 
+                    },
+
+                    {
+                        label: 'Sondages',
+                        icon: 'pi pi-fw pi-bell',
+                        routerLink: ['/pages/sondages']
                     },
 
                     {
