@@ -1,0 +1,27 @@
+@media screen and (max-width: 960px) {
+    ::ng-deep {
+        .customized-timeline {
+            .p-timeline-event:nth-child(even) {
+                flex-direction: row !important;
+
+                .p-timeline-event-content {
+                    text-align: left !important;
+                }
+            }
+
+            .p-timeline-event-opposite {
+                flex: 0;
+            }
+
+            .p-card {
+                margin-top: 1rem;
+            }
+            .tab-menu {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

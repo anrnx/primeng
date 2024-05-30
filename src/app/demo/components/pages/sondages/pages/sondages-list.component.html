@@ -1,0 +1,32 @@
+<p-card>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Sondages</h1>
+        </div>
+        <div class="col">
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Créer un sondage" type="button" pRipple icon="pi pi-plus" [routerLink]="'/pages/sondages/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+        <p-table [lazy]="true" [loading]="loading" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 25%;" pSortableColumn="status">Statut<p-sortIcon field="name"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="question">Question <p-sortIcon field="firstname"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="datedebut">Date début <p-sortIcon field="isPrimary"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="datefin">Date fin <p-sortIcon field="priority"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="qstactive">Question active<p-sortIcon field="priority"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="publicresults">Résultats publiques<p-sortIcon field="priority"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th><p-columnFilter type="text" field="status" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="question" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="datedebut" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="datefin" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="qstactive" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="publicresults" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                
+            </tr>
+        </ng-template>
+        
+    </p-table>
+  </p-card>

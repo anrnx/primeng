@@ -1,0 +1,130 @@
+<!-- <p-card>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Messages</h1>
+        </div>
+        <div class="col">
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Enregistrer" type="button" pRipple icon="pi pi-save" [routerLink]="'/pages/messages/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+  
+      <div class="grid">
+          <div class="col" style="display:flex;  padding:5px;">
+               <label for="Titre" class="text-900 font-bold text-lg">Titre</label>
+          </div>
+          <div class="col-0" style="display:flex; width:90%;">
+              <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Titre de la notification">
+              <p-button [style]="{'background-color': '#edf1f7','border-color': '#edf1f7','margin-left': '.5em', 'display':'flex'}" class="pi pi-face-smile" (click)="toggleEmoji()"> </p-button>
+              <emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart> 
+          </div>
+      </div>
+      <div class="grid">
+          <div class="col">
+               <label for="Titre" class="text-900 font-bold text-lg">Texte</label>
+          </div>
+          <div class="col-0" style="display:flex; width:90%; padding:5px;">
+              <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Titre de la notification">
+              <p-button [style]="{'background-color': '#edf1f7','border-color': '#edf1f7','margin-left': '.5em', 'display':'flex'}" class="pi pi-face-smile" (click)="toggleEmoji()"> 😀 </p-button>
+              <emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart> 
+          </div>
+      </div>
+      <div class="grid">
+          <div class="col">
+               <label for="Titre" class="text-900 font-bold text-lg">destination</label>
+               <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" >CHOISIR UN ECRAN</p-button>
+          </div>
+  
+      </div>
+  
+      <div class="grid">
+          <label class="col" style="">Tags</label>        
+            <div class="col-12 md:col-10">
+              <p-autoComplete  [dropdown]="true" [multiple]="true"></p-autoComplete>
+              </div>
+        </div>  
+  </p-card>
+   -->
+
+
+   <p-card>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Messages</h1>
+        </div>
+        <div class="col">
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="Enregistrer" type="button" pRipple icon="pi pi-save" [routerLink]="'/pages/messages/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+
+    <div class="grid">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="Titre" class="text-900 font-bold text-lg">Titre</label>
+        </div>
+        <div class="col-12 md:col-8">
+            <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Titre de la notification">
+        </div>
+        <div class="col-12 md:col-2 flex align-items-center">
+            <p-button [style]="{'background-color': '#edf1f7','border-color': '#edf1f7'}" icon="pi pi-face-smile" (click)="toggleEmoji()"> 😀 </p-button>
+            <emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart>
+        </div>
+    </div>
+
+    <div class="grid mt-2">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="Texte" class="text-900 font-bold text-lg">Texte</label>
+        </div>
+        <div class="col-12 md:col-8">
+            <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Texte de la notification">
+        </div>
+        <div class="col-12 md:col-2 flex align-items-center">
+            <p-button [style]="{'background-color': '#edf1f7','border-color': '#edf1f7'}" icon="pi pi-face-smile" (click)="toggleEmoji()"> 😀 </p-button>
+            <emoji-mart *ngIf="showEmoji" title="Pick your emoji…" emoji="point_up"></emoji-mart>
+        </div>
+    </div>
+
+    <div class="grid mt-2">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="destination" class="text-900 font-bold text-lg">Destination</label>
+        </div>
+        <div class="col-12 md:col-10">
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" (click)="showDialog()" label="CHOISIR UN ECRAN"></p-button>
+            <p-dialog 
+                header="Choisissez une action à l'ouverture de la notification"
+                [modal]="true"
+                [(visible)]="visible" 
+                >
+                    <div class="flex align-items-center justify-content-center">
+                        <h2 class="text-900 font-bold text-xl">Choisissez un service</h2>
+                    </div>
+                    <p class="text-center mt-2">Lorsque l'utilisateur clique sur la notification vous pouvez choisir d'ouvrir votre application sur l'un des services de votre <strong>cityapp</strong>.</p>
+                <p-footer>
+                    <button type="button" pButton label="Search" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" (click)="visible = false"></button>
+                    <button type="button" pButton label="Cancel" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" (click)="visible = false"></button>
+                </p-footer>
+            </p-dialog> 
+        </div>
+        <label style="padding:5px;" class="text-500 text-sm">Définissez quel service sera ouvert lorsque l'utilisateur clique sur la notification. Laissez vide, si vous souhaitez ouvrir la section "Notifications".</label>
+    </div>
+
+    <div class="grid mt-2">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="groupes" class="text-900 font-bold text-lg">Groupes de diffusion</label>
+        </div>
+        <div class="col-12 md:col-10">
+            <p-autoComplete [dropdown]="true" [multiple]="true" placeholder="Choisissez un groupe"></p-autoComplete>
+        </div>
+        <label style="padding:5px;" class="text-500 text-sm">Laissé vide, la notification sera envoyée à tous les utilisateurs peu importe le groupe.</label>
+    </div>
+
+    <div class="grid mt-4">
+        <div class="col-12">
+            <p-button label="Envoyer maintenant" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" [disabled]="true" class="mr-2"></p-button>
+            <p-button label="Programmer l'envoi" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" [disabled]="true"></p-button>
+        </div>
+    </div>
+    <div class="grid mt-4">
+        <div class="col-12">
+            <p class="text-sm text-500">Les messages sont envoyés à l'heure convenue mais peuvent mettre plusieurs minutes avant d'arriver sur les smartphones.</p>
+        </div>
+    </div>
+</p-card>

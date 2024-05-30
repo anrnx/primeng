@@ -75,7 +75,7 @@ export class AppMenuComponent implements OnInit {
 
                     {
                         label: 'Sondages',
-                        icon: 'pi pi-fw pi-bell',
+                        icon: 'pi pi-chart-bar',
                         routerLink: ['/pages/sondages']
                     },
 

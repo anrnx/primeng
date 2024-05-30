@@ -1,0 +1,141 @@
+<p-card>
+    <div class="grid">
+      <div class="col-8">
+        <h1 class="text-900 font-bold text-3xl lg:text-5xl mb-2">Création sondage</h1>
+      </div>
+      <div class="col">
+        <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="Enregistrer" [disabled]="true" type="button" pRipple icon="pi pi-save" class="ml-2"></p-button>
+      </div>
+    </div>
+  
+    <div class="grid">
+      <div class="col-12 md:col-2 flex align-items-center">
+        <label for="question" class="text-900 text-lg">Saisissez votre question*</label>
+      </div>
+      <div class="col-12 md:col-8">
+        <input pInputText id="question" type="text" class="p-inputtext p-component w-full" placeholder="Avez-vous une question ?" maxlength="255" />
+      </div>
+    </div>
+  
+    <div class="grid mt-2">
+      <div class="col-12 md:col-2 flex align-items-center">
+        <label for="activateQuestion" class="text-900 text-lg">Activer la question ?</label>
+      </div>
+      <div class="col-12 md:col-10">
+        <p-checkbox id="activateQuestion" binary="true"></p-checkbox>
+      </div>
+    </div>
+  
+    <div class="grid mt-2">
+      <div class="col-12 md:col-2 flex align-items-center">
+        <label for="showResults" class="text-900 text-lg">Afficher les résultats au public ?</label>
+      </div>
+      <div class="col-12 md:col-10">
+        <p-checkbox id="showResults" binary="true"></p-checkbox>
+      </div>
+    </div>
+  
+    <div class="grid mt-2">
+      <div class="col-12 md:col-2 flex align-items-center">
+        <label for="startDate" class="text-900 text-lg">Date de début du sondage*</label>
+      </div>
+      <div class="col-12 md:col-10">
+        <input pInputText id="startDate" type="datetime-local" class="p-inputtext p-component w-full" />
+      </div>
+    </div>
+  
+    <div class="grid mt-2">
+      <div class="col-12 md:col-2 flex align-items-center">
+        <label for="endDate" class="text-900 text-lg">Date de fin du sondage*</label>
+      </div>
+      <div class="col-12 md:col-10">
+        <input pInputText id="endDate" type="datetime-local" class="p-inputtext p-component w-full" />
+      </div>
+    </div>
+    <p>* Obligatoire</p>
+  </p-card>
+
+  <p-card>
+    <div class="grid">
+        <div class="col-12">
+            <p-tabView>
+                <p-tabPanel header="1 SEUL CHOIX">
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-messages severity="info" text="L'utilisateur peut choisir une seule réponse de la liste."></p-messages>
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <label for="reponse1" class="text-900 font-bold text-lg">Réponse</label>
+                        </div>
+                        <div class="col-12 md:col-8">
+                            <input pInputText id="reponse1" type="text" class="p-inputtext p-component w-full" placeholder="Réponse 1" />
+                        </div>
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <p-button icon="pi pi-trash" class="p-button-danger p-button-text" 
+                            [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"></p-button>
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-button label="AJOUTER UNE RÉPONSE" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" class="p-button-text"></p-button>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="CHOIX MULTIPLE">
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-messages severity="info" text="L'utilisateur peut choisir plusieurs réponses de la liste."></p-messages>
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <label for="reponse2" class="text-900 font-bold text-lg">Réponse</label>
+                        </div>
+                        <div class="col-12 md:col-8">
+                            <input pInputText id="reponse2" type="text" class="p-inputtext p-component w-full" placeholder="Réponse 1" />
+                        </div>
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <p-button icon="pi pi-trash" class="p-button-danger p-button-text" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"></p-button>
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-button label="AJOUTER UNE RÉPONSE" [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" class="p-button-text"></p-button>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="NOTE">
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-messages severity="info" text="L'utilisateur donne une note."></p-messages>
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <label for="noteMin" class="text-900 text-lg">Note minimale</label>
+                        </div>
+                        <div class="col-12 md:col-8">
+                            <input pInputText id="noteMin" type="number" class="p-inputtext p-component w-full" value="0" />
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12 md:col-2 flex align-items-center">
+                            <label for="noteMax" class="text-900 text-lg">Note maximale</label>
+                        </div>
+                        <div class="col-12 md:col-8">
+                            <input pInputText id="noteMax" type="number" class="p-inputtext p-component w-full" value="10" />
+                        </div>
+                    </div>
+                    <div class="grid mt-2">
+                        <div class="col-12">
+                            <p-slider id="note" [(ngModel)]="value" [step]="5"></p-slider>
+                            
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+</p-card>
