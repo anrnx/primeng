@@ -34,10 +34,10 @@ export class AppTopBarComponent {
             target: event.target as EventTarget,
             message: 'Please confirm to proceed moving forward.',            
             accept: () => {
-                // this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
+                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'You have accepted', life: 3000 });
             },
             reject: () => {
-                // this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
+                this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'You have rejected', life: 3000 });
             }
         });
     }
