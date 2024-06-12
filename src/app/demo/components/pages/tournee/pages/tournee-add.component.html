@@ -1,0 +1,29 @@
+<p-card>
+    <div class="grid">
+        <div class="col-8">
+            <h1 class="text-900 font-bold text-3xl">Tournées</h1>
+        </div>
+        <div class="col">
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Sauvegarder" type="button" pRipple [routerLink]="'/pages/tournee/add'" class="ml-2"></p-button>
+        </div>
+    </div>
+</p-card>
+
+<p-card [style]="{'margin-top':'20px'}">
+    <div class="grid">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="tourName" class="text-900">Nom de la tournée</label>
+        </div>
+        <div class="col-12 md:col-8">
+            <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Titre de la notification">
+        </div>
+    </div>
+    <div class="grid">  
+        <div class="col-8">
+            <label for="concern" class="col-12 mb-2 md:col-2 md:mb-0">Concerne</label> 
+        </div>       
+        <div class="col md:col-10">
+            <p-autoComplete  [dropdown]="true" [suggestions]="suggestionTags" field="name" [multiple]="true"></p-autoComplete>
+        </div>
+    </div>  
+</p-card>

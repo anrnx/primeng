@@ -1,0 +1,190 @@
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+</head>
+<p-card>
+    <div class="grid">
+      <div class="col-8">
+        <h3>Informations</h3>
+      </div>
+      <div class="col">
+        <p-button [style]="{'background-color':'#000000', 'border-color':'#000000'}" type="button" label="Vérifier les informations de cette section" class="p-button-secondary"></p-button>
+      </div>
+    </div>
+</p-card>
+
+<br>
+
+<p-card>
+  <div class="p-fluid grid formgrid">
+      <div class="field col-12">
+          <label for="nom-commerce">Nom du commerce</label>
+          <input id="nom-commerce" type="text" pInputText />
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Liste d'emails</label>
+              </div>
+              <div class="col-8">
+                  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" label="AJOUTER UN EMAIL" class="button-danger"></p-button>
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Liste de numéros</label>
+              </div>
+              <div class="col-8">
+                  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" label="AJOUTER UN NUMÉRO" class="button-danger"></p-button>
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Liste des sites internet</label>
+              </div>
+              <div class="col-8">
+                  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" label="AJOUTER UN SITE" class="button-danger"></p-button>
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <label for="description">Description</label>
+          <p-editor [style]="{'height':'175px'}" id="description"></p-editor>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Logo</label>
+              </div>
+              <div class="col-8">
+                  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-cloud-upload" label="AJOUTER" class="button-danger"></p-button>
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Illustrations (max 3)</label>
+              </div>
+              <div class="col-8">
+                  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-cloud-upload" label="AJOUTER" class="button-danger"></p-button>
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Marques</label>
+              </div>
+              <div class="col-8">
+                  <input id="marque" type="text" pInputText />
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Catégories</label>
+              </div>
+              <div class="col-8">
+                  <input id="categorie" type="text" pInputText />
+              </div>
+          </div>
+      </div>
+      
+      <div class="field col-12">
+          <div class="grid">
+              <div class="col-4">
+                  <label>Parking le plus proche</label>
+              </div>
+              <div class="col-8">
+                  <p-autoComplete [dropdown]="true"></p-autoComplete>
+              </div>
+          </div>
+      </div>
+  </div>
+</p-card>
+
+<br>
+
+<p-card>
+  <div class="p-fluid grid">
+      <div class="col-12">
+          <h3>Adresse</h3>
+      </div> 
+  </div>
+</p-card>
+
+<br>
+
+<p-card>
+  <h3>Heures d'ouverture</h3>
+  <div class="col-4">
+      <label>Lundi</label>
+  </div>
+  <div class="col-8">
+      <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+  </div>
+
+  <div class="col-4">
+    <label>Mardi</label>
+</div>
+<div class="col-8">
+    <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+
+<div class="col-4">
+  <label>Mercredi</label>
+</div>
+<div class="col-8">
+  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+
+<div class="col-4">
+  <label>Jeudi</label>
+</div>
+<div class="col-8">
+  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+
+
+<div class="col-4">
+  <label>Vendredi</label>
+</div>
+<div class="col-8">
+  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+
+<div class="col-4">
+  <label>Samedi</label>
+</div>
+<div class="col-8">
+  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+
+<div class="col-4">
+  <label>Dimanche</label>
+</div>
+<div class="col-8">
+  <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" type="button" icon="pi pi-plus" label="AJOUTER" class="button-danger"></p-button>
+</div>
+
+</p-card>
