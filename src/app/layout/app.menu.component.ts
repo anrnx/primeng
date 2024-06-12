@@ -2,6 +2,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 import { lastValueFrom } from 'rxjs';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-menu',
@@ -16,16 +17,15 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {
-                label: 'Home',
+                label: 'Accueil',
                 items: [
-                    { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
+                    { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/'] }
                 ]
             },
             {
                 label: 'Pages',
                 icon: 'pi pi-fw pi-briefcase',
                 items: [
-
                     {
                         label: 'Notifications Push',
                         icon: 'pi pi-fw pi-bell',
@@ -47,6 +47,7 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Report-it',
                         icon: 'pi pi-exclamation-triangle',
+                        routerLink: ['/pages/reportit']
                     },
 
                     {
@@ -79,8 +80,8 @@ export class AppMenuComponent implements OnInit {
                         label: 'Shopping',
                         icon: 'pi pi-fw pi-shopping-bag',
                         items: [ 
-                            {label: 'Commerces'},
-                            {label: 'Marques'},
+                            {label: 'Commerces', routerLink: ['/pages/shopping']},
+                            {label: 'Marques', routerLink: ['/pages/marques']},
                         ]
                     },
 
@@ -93,7 +94,7 @@ export class AppMenuComponent implements OnInit {
                         label: 'Déchets',
                         icon: 'pi pi-fw pi-trash',
                         items: [ 
-                            {label: 'Tournées'},
+                            {label: 'Tournées', routerLink: ['/pages/tournee']},
                             {label: "Date d'enlèvement"},
                             {label:'Types de déchets'},
                             {label:'Centre de recyclage'},
@@ -103,7 +104,7 @@ export class AppMenuComponent implements OnInit {
 
                     {
                         label: 'Annuaire',
-                        icon: 'pi pi-fw pi-address-book',
+                        icon: 'pi pi-fw pi-users',
                         items: [
                             {
                                 label: 'List',
@@ -136,20 +137,18 @@ export class AppMenuComponent implements OnInit {
                 {
                     label: 'Paramètres',
                     icon: 'pi pi-fw pi-cog',
-                    routerLink: ['/auth/login']
                 },
 
                 {
                     label: 'Configuration application',
                     icon: 'pi pi-fw pi-file',
-                    routerLink: ['/auth/login']
+                    routerLink: ['/pages/configuration']
                 },
                 
 
                 {
                     label: 'Utilisateurs',
                     icon: 'pi pi-fw pi-users',
-                    routerLink: ['/auth/login']
                 },
                     {
                         label: 'Login',
@@ -165,6 +164,8 @@ export class AppMenuComponent implements OnInit {
                     {
                        label: 'Ui', icon: 'pi pi-fw pi-home', routerLink: ['/pages/ui']
                     },
+
+
                    
                 ]
             },  

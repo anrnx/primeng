@@ -1,8 +1,5 @@
 <div class="layout-topbar">
-    <a class="layout-topbar-logo" routerLink="">
-        <span>PrimeNg</span>
-    </a>
-
+    <h2>PrimeNg</h2>
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
         <i class="pi pi-bars"></i>
     </button>
@@ -11,13 +8,14 @@
         <button class="p-link layout-topbar-button" (click)="confirm($event)">
             <i class="pi pi-user"></i>
             <span>Profile</span>
-          </button>
-          <p-confirmPopup>
-            <ng-template pTemplate="headless" let-message let-test>
+        </button>
+        <p-confirmPopup>
+            <ng-template>
                 <div class="border-round p-3">
                     <p>{{ username }}</p>
                     <p-button (click)="logout()">Déconnexion</p-button>
                 </div>
+                
             </ng-template>
         </p-confirmPopup>
     </div>

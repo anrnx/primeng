@@ -24,6 +24,7 @@ import { MessageAddComponent } from './pages/message-add.component';
 import { DialogModule } from 'primeng/dialog';
 import { TreeTableModule } from 'primeng/treetable';
 import { MessageSentComponent } from './pages/message-sent.component';
+import { TabViewModule } from 'primeng/tabview';
 
 @NgModule({
     imports: [
@@ -47,7 +48,8 @@ import { MessageSentComponent } from './pages/message-sent.component';
         TabMenuModule,        
         MessageRoutingModule,
         DialogModule,
-        TreeTableModule
+        TreeTableModule,
+        TabViewModule
     ],    
     providers: [
        DirectoryService,

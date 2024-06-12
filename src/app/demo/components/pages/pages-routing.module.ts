@@ -17,6 +17,11 @@ import { Role } from '../../api/roles';
         { path: 'ui', loadChildren: () => import('./ui/ui.module').then(m => m.UiModule) },
         { path: 'messages', loadChildren: () => import('./notifications/message.module').then(m => m.NotificationsModule) },
         { path: 'sondages', loadChildren: () => import('./sondages/sondages.module').then(m => m.SondagesModule) },
+        { path : 'reportit', loadChildren: () => import('./reportit/reportit.module').then(m => m.ReportItModule) },
+        { path : 'shopping', loadChildren: () => import('./shopping/shopping.module').then(m => m.ShoppingModule) },
+        { path: 'marques', loadChildren: () => import('./marques/marques.module').then(m => m.MarquesModule) },
+        { path: 'configuration', loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule) },
+        { path: 'tournee', loadChildren: () => import('./tournee/tournee.module').then(m => m.TourneeModule) },
         { path: '**', redirectTo: '/unauthorised' }
 
     ])],

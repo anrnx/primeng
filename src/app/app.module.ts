@@ -32,10 +32,7 @@ import { ButtonModule } from 'primeng/button';
 import { IconFieldModule } from 'primeng/iconfield';
 import { InputIcon, InputIconModule } from 'primeng/inputicon';
 import { FlowInjectionToken, NgxFlowModule } from '@flowjs/ngx-flow';
-import Flow from '@flowjs/flow.js';
-
-
-
+import { Flow } from '@flowjs/flow.js';
 
 @NgModule({
     declarations: [
@@ -60,7 +57,7 @@ import Flow from '@flowjs/flow.js';
         ButtonModule,
         IconFieldModule,
         InputIconModule,
-        NgxFlowModule
+        NgxFlowModule,
     ],
     providers: [
         {
