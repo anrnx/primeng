@@ -62,7 +62,7 @@
       <ng-container *ngFor="let email of directoryAdd.emails; index as i;">
         <div class="field grid">
           <div class="col-12 md:col-10">
-            <input pInputText id="latitude" aria-describedby="latitude-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="email.label" />
+            <input pInputText id="email" aria-describedby="email-help" [style]="{ 'margin-right': '.5em'}"  [[(ngModel)]="email.label" />
             <input pInputText id="longitude" aria-describedby="longitude-help" [[(ngModel)]="email.email" />
             <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}"  label="Supprimer" type="button" pRipple icon="pi pi-trash" (click)="removeEmail(i)" class="ml-2"></p-button>
           </div>

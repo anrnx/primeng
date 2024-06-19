@@ -26,7 +26,11 @@ export class AppTopBarComponent {
 
     constructor(public layoutService: LayoutService, private confirmationService: ConfirmationService, private authService: AuthService, private router: Router, private messageService: MessageService) { }
 
-   
+   selectedCity: any;
+
+    cities: any[] = [
+        
+    ];
 
 
     confirm(event: Event) {

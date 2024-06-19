@@ -19,11 +19,64 @@
         </div>
     </div>
     <div class="grid">  
-        <div class="col-8">
+        <div class="col-12 md:col-2">
             <label for="concern" class="col-12 mb-2 md:col-2 md:mb-0">Concerne</label> 
         </div>       
         <div class="col md:col-10">
-            <p-autoComplete  [dropdown]="true" [suggestions]="suggestionTags" field="name" [multiple]="true"></p-autoComplete>
+            <p-dropdown 
+            [options]="options" 
+            [(ngModel)]="selectedOption" 
+            
+            placeholder="Options" />
         </div>
     </div>  
+    <div class="grid">
+        <div class="col-12 md:col-2"  *ngIf="selectedOption == options[1]">
+            <label for="localite" class="text-900">Localité</label>
+        </div>  
+    </div>
+</p-card>
+
+
+<p-card  [style]="{'margin-top':'20px'}" *ngIf="selectedOption == options[2]">
+        
+    <div class="grid">
+        <div class="col-12">
+            <h2 class="text-900 font-bold text-xl">Selection rapide</h2>
+        </div>
+    </div>
+    <div class="grid mt-2">
+        <div class="col-12 md:col-4 text-center">
+            <h3 class="text-900 font-bold">Toutes les rues</h3>
+            <p>Affecte l'ensemble des rues de la commune sans tenir compte des filtres</p>
+            <p-button [style]="{'margin-right':'5px','background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="SELECTION"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="DÉSÉLECTION"></p-button>
+        </div>
+        <div class="col-12 md:col-4 text-center">
+            <h3 class="text-900 font-bold">Page courante</h3>
+            <p>Affecte uniquement les rues de la page affichée en tenant compte des filtres</p>
+            <p-button [style]="{'margin-right':'5px', 'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="SELECTION"></p-button>
+            <p-button [style]="{'background-color':'#FC7F03', 'border-color':'#FC7F03'}" label="DÉSÉLECTION"></p-button>
+        </div>
+        <div class="col-12 md:col-4 text-center">
+            <h3 class="text-900 font-bold">Afficher</h3>
+            <p-dropdown 
+            [options]="printOption" [(ngModel)]="selectedPrintOption" placeholder="Options" />
+        </div>
+    </div>
+
+    <p-table [lazy]="true" [loading]="loading" [rows]="rowsPerPage" [totalRecords]="totalRecords" [paginator]="true" (onLazyLoad)="onPageChange($event)">
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width: 25%;" pSortableColumn="name">Nom <p-sortIcon field="name"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="typr">Type <p-sortIcon field="firstname"></p-sortIcon></th>
+                <th style="width: 25%;" pSortableColumn="Actions">Actions <p-sortIcon field="isPrimary"></p-sortIcon></th>
+            </tr>
+            <tr>
+                <th><p-columnFilter type="text" field="name" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+                <th><p-columnFilter type="text" field="type" [matchModeOptions]="matchModeOptions"></p-columnFilter></th>
+            </tr>
+        </ng-template>
+    </p-table>
+    
 </p-card>

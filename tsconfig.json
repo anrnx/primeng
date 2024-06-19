@@ -22,7 +22,7 @@
       "lib": [
         "ES2022",
         "dom"
-      ],
+      ]
     },
     "exclude": ["node_modules", "**/node_modules/*"],
     "angularCompilerOptions": {
@@ -31,6 +31,6 @@
       "strictInputAccessModifiers": false,
       "strictTemplates": false
     }
-  }
+}
     
   

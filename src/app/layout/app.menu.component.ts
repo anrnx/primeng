@@ -137,6 +137,7 @@ export class AppMenuComponent implements OnInit {
                 {
                     label: 'Paramètres',
                     icon: 'pi pi-fw pi-cog',
+                    routerLink: ['/pages/settings']
                 },
 
                 {

@@ -22,6 +22,7 @@ import { Role } from '../../api/roles';
         { path: 'marques', loadChildren: () => import('./marques/marques.module').then(m => m.MarquesModule) },
         { path: 'configuration', loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule) },
         { path: 'tournee', loadChildren: () => import('./tournee/tournee.module').then(m => m.TourneeModule) },
+        { path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule) },
         { path: '**', redirectTo: '/unauthorised' }
 
     ])],

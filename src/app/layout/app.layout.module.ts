@@ -27,6 +27,7 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmationService } from 'primeng/api';
 import { NgxFlowModule } from '@flowjs/ngx-flow';
 import { FileUpload } from 'primeng/fileupload';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,8 @@ import { FileUpload } from 'primeng/fileupload';
         InputIconModule,
         MenuModule,
         SplitButtonModule,
-        ConfirmPopupModule
+        ConfirmPopupModule,
+        DropdownModule,
     ],
     providers: [
         ConfirmationService,

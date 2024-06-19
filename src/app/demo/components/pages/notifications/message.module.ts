@@ -23,8 +23,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { MessageAddComponent } from './pages/message-add.component';
 import { DialogModule } from 'primeng/dialog';
 import { TreeTableModule } from 'primeng/treetable';
-import { MessageSentComponent } from './pages/message-sent.component';
 import { TabViewModule } from 'primeng/tabview';
+
 
 @NgModule({
     imports: [
@@ -56,6 +56,6 @@ import { TabViewModule } from 'primeng/tabview';
        ConfirmationService
     ],
 
-    declarations: [MessageAddComponent, MessageListComponent, MessageSentComponent]
+    declarations: [MessageAddComponent, MessageListComponent]
 })
 export class NotificationsModule { }

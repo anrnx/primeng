@@ -9,7 +9,7 @@ L.Icon.Default.imagePath = 'assets/leaflet/';
     templateUrl: './shopping-add.component.html',
     styleUrls: ['./shopping-add.component.scss']
 })
-export class ShoppingAddComponent implements AfterViewInit {
+export class ShoppingAddComponent implements OnInit {
   private map!: L.Map
   markers: L.Marker[] = [
     L.marker([31.9539, 35.9106]), // Amman
@@ -19,9 +19,6 @@ export class ShoppingAddComponent implements AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  ngAfterViewInit() {
     this.initializeMap();
     this.addMarkers();
     this.centerMap();

@@ -22,6 +22,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
     imports: [
@@ -44,7 +45,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
         MessageModule,
         ToastModule,    
         ConfirmDialogModule,
-        TabMenuModule
+        TabMenuModule,
+        DropdownModule
     ],    
     providers: [
        DirectoryService,
