@@ -19,6 +19,10 @@ export class MessageListComponent implements OnInit {
     messages = [
         { username: 'John', content: 'hello', color: '#FFBF78' },
         { username: 'doe', content: 'hello', color: '#FFEEA9' },
+        { username: 'John', content: 'hello', color: '#FFBF78' },
+        { username: 'doe', content: 'works', color: '#FFEEA9' },
+        { username: 'John', content: 'test', color: '#FFBF78' },
+        { username: 'doe', content: 'y', color: '#FFEEA9' },
       ];
         
     constructor() { }

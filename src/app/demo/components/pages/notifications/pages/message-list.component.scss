@@ -8,22 +8,6 @@
                     text-align: left !important;
                 }
             }
-
-            .p-timeline-event-opposite {
-                flex: 0;
-            }
-
-            .p-card {
-                margin-top: 1rem;
-            }
-            .tab-menu {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 1rem;
-            }
-
-            
         }
     }
 }
@@ -33,6 +17,8 @@
     margin: 10px 0;
     border-radius: 8px;
     color: #333;
+    clear: both;
+    word-break: break-word;
   }
 
 .message-container {
