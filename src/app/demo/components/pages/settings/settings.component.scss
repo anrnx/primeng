@@ -16,12 +16,23 @@
             .p-card {
                 margin-top: 1rem;
             }
-            .tab-menu {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 1rem;
-            }
         }
     }
-}
+} 
+
+.map-container {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+  }
+  
+  .map-frame {
+    border: 2px solid black;
+    height: 500px;
+  }
+  
+  #map {
+    height: 500px;
+  }

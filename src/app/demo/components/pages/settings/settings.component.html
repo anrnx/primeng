@@ -1,0 +1,64 @@
+<p-card>
+    <h3>Notification</h3>
+</p-card>
+
+<p-card [style]="{'margin-top':'20px'}">
+    <h4>Report it</h4>
+
+    <div class="grid">
+        <div class="col-12">    
+            <label for="name">name :</label>
+        </div>
+        <div class="col-12">
+            <label for="categories">categories :</label>
+        </div>
+        <div class="col-12">
+            <label for="cityIdentifier">cityIdentifier :</label>
+        </div>
+
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="Titre" class="text-900 text-lg">Sender name</label>
+        </div>
+        <div class="col-12 md:col">
+            <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Sender name">
+        </div>
+    </div>
+    <div class="grid">
+        <div class="col-12 md:col-2 flex align-items-center">
+            <label for="Titre" class="text-900 text-lg">Date limite pour l'API reportit</label>
+        </div>
+        <div class="col-12 md:col">
+            <input pInputText type="text" class="p-inputtext p-component w-full" placeholder="Date limite">
+        </div>
+    </div>
+
+    <div class="field grid">
+        <label for="latitude" class="col-12 mb-2 md:col-2 md:mb-0">Latitude</label>
+        <div class="col-12 md:col-10">
+          <input pInputText type="text" class="p-inputtext p-component w-half" placeholder="Latitude"/>
+          <label for="longitude" class="col-12 mb-2 md:col-2 md:mb-0">Longitude</label>
+          <input pInputText type="text"  placeholder="Longitude" class="p-inputtext p-component w-half"/>
+          <p-dropdown [style]="{'margin-left':'35px'}"
+            [options]="mapOptions" [(ngModel)]="selectedMapOption" placeholder="Options" />
+        </div>   
+
+        
+    </div>
+</p-card>
+
+<p-card>
+    <div class="map-container">
+        <div class="map-frame">
+          <div id="map"></div>
+        </div>
+    </div>
+</p-card>
+
+<google-map
+  height="500px"
+  width="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+></google-map>
+

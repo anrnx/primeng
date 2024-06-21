@@ -15,8 +15,12 @@ export class MessageListComponent implements OnInit {
     activeItem: MenuItem | undefined;
 
     items: MenuItem[] | undefined;
-    
-    
+
+    messages = [
+        { username: 'John', content: 'hello', color: '#FFBF78' },
+        { username: 'doe', content: 'hello', color: '#FFEEA9' },
+      ];
+        
     constructor() { }
 
     ngOnInit(){

@@ -1,5 +1,5 @@
  <div class="grid">
-        <div class="col-12 xl:col-6">
+        <div class="col-12 xl:col-6" [style]="{'width':'100%'}">
             <div class="card">
                 <h1>Statistiques</h1>    
                 <p-dropdown [style]="{'margin-right':'.5em'}" [options]="choice" [(ngModel)]="selectedChoice" optionLabel="title" placeholder="Select" /> 
@@ -146,4 +146,3 @@
     </div>
 </p-card>
 
-<img src="/assets/images/power_by.png">
